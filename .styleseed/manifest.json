@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "engineVersion": "3.1.0",
+  "generatedAt": "2026-09-19T19:58:33.368Z",
+  "selection": {
+    "agent": "codex",
+    "grammar": "commerce-conversion",
+    "grammarSource": "built-in:commerce-conversion",
+    "fallback": "commerce-conversion",
+    "adapter": "product-ui",
+    "domain": "booking",
+    "page": "landing",
+    "profile": "editorial"
+  },
+  "bundle": {
+    "path": ".styleseed/effective-rules.md",
+    "sha256": "7db1ae3ececa2de86e7061461731a9ecf61086bb3ce2efe361d890b79cd65970",
+    "bytes": 14218
+  },
+  "sources": [
+    {
+      "id": "agent-execution",
+      "sha256": "dfe4b0a2de36209ca50a04b39e35c248ac13fb8b059428fdb68a484cffc190cb",
+      "bytes": 329
+    },
+    {
+      "id": "core",
+      "sha256": "0dc97fbc6df81d361b0e08b4bc82aa10d40e4e5598fa7dbec210767eee51daa9",
+      "bytes": 4254
+    },
+    {
+      "id": "grammar",
+      "sha256": "7adc2137db6dcaba17ee0cc3e23745e4565a2fcf0839cb35b01ce349949a472c",
+      "bytes": 997
+    },
+    {
+      "id": "adapter",
+      "sha256": "7b5b5c34b0b235dca329e6384ccb94c66ee65a348bbe7142277ae7bbda3c13b0",
+      "bytes": 714
+    },
+    {
+      "id": "domain",
+      "sha256": "130870f1603655934481110e0e182cf9ef08081ff99efd188d28f1ce89c8502c",
+      "bytes": 791
+    },
+    {
+      "id": "page",
+      "sha256": "2875da6524db84e956d4a79c460eafec11cf44836b2d13936f11af2679853a81",
+      "bytes": 1685
+    },
+    {
+      "id": "profile",
+      "sha256": "8bef636824524b82d7690f302eca6b31ea0f9650a7aa4bc05d0d01312634e4e8",
+      "bytes": 321
+    },
+    {
+      "id": "lock",
+      "sha256": "1e0d3df0532e2588038037e579f242a54bfcb7774363fe57d5344ef3f5f6be2b",
+      "bytes": 921
+    },
+    {
+      "id": "craft",
+      "sha256": "2683d353ca2bb5fcdb4735f3d30e54cf711bca7021277f0238264ec304d04603",
+      "bytes": 3550
+    }
+  ]
+}
