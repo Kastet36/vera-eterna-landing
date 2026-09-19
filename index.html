@@ -161,6 +161,33 @@
     .form-status { display: none; margin: 14px 0 0; color: #126b59; font-size: 13px; }
     .form-status.is-visible { display: block; }
 
+    /* Desktop notebook: each concept remains a true first viewport. */
+    @media (min-width: 821px) and (max-height: 900px) {
+      .variant { min-height: calc(100svh - 58px); height: calc(100svh - 58px); }
+      .variant-meta { top: 16px; }
+      .variant h1 { font-size: clamp(54px, 5.55vw, 80px); }
+      .eyebrow { margin-bottom: 12px; }
+      .hero-copy__text { margin-top: 16px; font-size: 16px; line-height: 1.48; }
+      .actions { margin-top: 22px; }
+      .helper { margin-top: 12px; }
+      .hero-one__copy { padding: 66px clamp(28px, 7vw, 104px) 42px; }
+      .hero-one__identity { margin-bottom: 34px; }
+      .hero-one__identity .brand-logo { width: 132px; }
+      .hero-one__image { min-height: 0; margin: 14px 14px 14px 0; }
+      .hero-one__line { margin-bottom: 16px; }
+      .hero-two { padding: 56px clamp(20px, 7vw, 112px) 30px; }
+      .hero-two__content { padding: 30px clamp(28px, 4vw, 50px); }
+      .hero-two .brand-logo { width: 128px; margin-bottom: 28px; }
+      .hero-two__content::after { width: 92px; height: 92px; }
+      .hero-three { gap: clamp(35px, 5vw, 90px); padding: 64px clamp(24px, 7vw, 112px) 36px; }
+      .hero-three__copy { padding-top: 38px; }
+      .hero-three__copy .brand-logo { width: 132px; margin-bottom: 34px; }
+      .hero-three__art { min-height: 0; height: 100%; }
+      .hero-three__photo { height: calc(100svh - 142px); max-height: 610px; }
+      .hero-three__label { padding: 18px; }
+      .hero-three__label b { font-size: 24px; }
+    }
+
     @media (max-width: 820px) {
       .preview-nav { gap: 12px; padding: 10px 16px; }
       .preview-nav__label { display: none; }
