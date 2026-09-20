@@ -6,6 +6,8 @@
 
 GitHub Pages: https://kastet36.github.io/vera-eterna-landing/
 
+Архив двух отклонённых концепций первого экрана: https://kastet36.github.io/vera-eterna-landing/hero-alternatives.html
+
 Сайт публикуется из ветки `main`, из корня репозитория. После `git push origin main` GitHub Pages автоматически собирает и публикует новую версию.
 
 ## Публикация из этого рабочего окружения

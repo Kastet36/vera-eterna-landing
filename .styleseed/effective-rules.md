@@ -215,13 +215,13 @@ drift, but they never choose or rewrite the design philosophy after the fact.
 - Secondary accent: #23684D
 - Canvas: #F5F2E9
 - Font: Onest + Cormorant Garamond
-- Radius: restrained; concept-specific geometry with consistent controls
+- Radius: restrained, with sharp editorial geometry and softly rounded controls
 - Elevation: flat tonal grouping; shadows only where imagery needs separation
 - Density: comfortable
 - Motion: restrained editorial reveal; complete static fallback
-- Imagery/data role: real Vera Eterna interior photography is evidence; every concept assigns it a different compositional role
-- Signature move: three clearly separated art directions share one coral booking action and one agreed content set
-- Comparison constraint: the page intentionally presents three alternative systems for selection; each hero must remain internally coherent
+- Imagery/data role: the real Vera Eterna interior is the main proof point in a tall photographic field on the right
+- Signature move: dark graphite editorial hero, oversized Cormorant title, sage italic line, coral booking action, and an asymmetrical photo slab
+- Selected direction: concept 01 — Editorial studio; concepts 02 and 03 are preserved in hero-alternatives.html
 - Logo treatment: detailed supplied mark is not used inside the hero because it loses legibility at interface scale; use a typographic wordmark
 - Locked: 2026-09-20
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Салон красоты Вера Этерна в Новоселье: стрижки, окрашивание, уход за волосами, укладки, брови и макияж.">
-  <title>Вера Этерна — салон красоты в Новоселье</title>
+  <meta name="description" content="Архив двух альтернативных концепций первого экрана имидж-студии Вера Этерна.">
+  <title>Вера Этерна — архив концепций 02 и 03</title>
   <style>
     @font-face {
       font-family: "Onest";
@@ -69,7 +69,7 @@
       --white: #ffffff;
       --line-dark: rgba(65, 67, 79, .22);
       --line-light: rgba(255, 253, 248, .28);
-      --preview-height: 0px;
+      --preview-height: 64px;
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
@@ -99,6 +99,48 @@
     }
     .skip-link:focus { transform: translateY(0); }
 
+    .concept-nav {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      min-height: var(--preview-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 8px clamp(20px, 4vw, 64px);
+      color: var(--ink);
+      background: rgba(245, 242, 233, .94);
+      border-bottom: 1px solid var(--line-dark);
+      backdrop-filter: blur(18px);
+    }
+    .concept-nav__brand {
+      flex: 0 0 auto;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -.02em;
+    }
+    .concept-nav__links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .concept-nav a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 14px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+    }
+    .concept-nav a:hover,
+    .concept-nav a[aria-current="true"] { border-color: var(--coral); }
+    .concept-nav a:focus-visible,
     .button:focus-visible,
     .dialog-close:focus-visible,
     input:focus-visible,
@@ -113,6 +155,18 @@
       overflow: hidden;
       isolation: isolate;
       scroll-margin-top: var(--preview-height);
+    }
+    .concept-label {
+      position: absolute;
+      z-index: 7;
+      top: 24px;
+      left: clamp(20px, 4vw, 64px);
+      margin: 0;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: .14em;
+      text-transform: uppercase;
     }
     .brandline {
       margin: 0 0 28px;
@@ -171,6 +225,7 @@
       letter-spacing: -.1em;
       pointer-events: none;
     }
+    .concept--editorial .concept-label { color: var(--sage); }
     .editorial-layout {
       min-height: calc(100svh - var(--preview-height));
       display: grid;
@@ -256,6 +311,193 @@
       background: var(--coral);
     }
 
+    /* Concept 02 — Soft confidence */
+    .concept--calm { color: var(--ink); background: var(--cream); }
+    .concept--calm::before {
+      position: absolute;
+      z-index: -1;
+      top: -28vw;
+      right: -16vw;
+      width: min(72vw, 1040px);
+      aspect-ratio: 1;
+      content: "";
+      background: var(--sage);
+      border-radius: 50%;
+    }
+    .concept--calm .concept-label { color: var(--forest); }
+    .calm-layout {
+      min-height: calc(100svh - var(--preview-height));
+      display: grid;
+      grid-template-columns: minmax(0, .92fr) minmax(440px, 1.08fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 80px);
+      padding: 96px clamp(28px, 6.5vw, 104px) 52px;
+    }
+    .calm-copy { position: relative; z-index: 3; max-width: 660px; }
+    .concept--calm .brandline { color: var(--forest); }
+    .concept--calm .hero-title {
+      max-width: 690px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(66px, 7vw, 112px);
+      font-weight: 600;
+      line-height: .88;
+      letter-spacing: -.052em;
+    }
+    .concept--calm .hero-title em { color: var(--forest); font-weight: 600; }
+    .concept--calm .hero-text { color: #555763; }
+    .concept--calm .button { border-radius: 14px; }
+    .concept--calm .button--secondary { color: var(--ink); border-color: var(--line-dark); }
+    .concept--calm .button--secondary:hover { background: var(--sage-pale); border-color: var(--forest); }
+    .calm-visual {
+      position: relative;
+      min-height: min(74vh, 690px);
+    }
+    .calm-photo {
+      position: absolute;
+      inset: 2% 0 0 4%;
+      overflow: hidden;
+      background: var(--sage-pale);
+      border-radius: 52% 52% 18px 18px;
+      box-shadow: 24px 24px 0 rgba(35, 104, 77, .13);
+    }
+    .calm-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      filter: saturate(.83) brightness(1.035);
+      transition: transform .8s var(--ease);
+    }
+    .concept--calm:hover .calm-photo img { transform: scale(1.018); }
+    .calm-seal {
+      position: absolute;
+      z-index: 3;
+      right: -20px;
+      bottom: 32px;
+      width: 152px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      color: var(--cream);
+      background: var(--forest);
+      border-radius: 50%;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 21px;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.05;
+      text-align: center;
+      transform: rotate(-7deg);
+    }
+    .calm-mark {
+      position: absolute;
+      z-index: 4;
+      top: 8%;
+      left: 0;
+      width: 28px;
+      height: 96px;
+      background: var(--coral);
+      border-radius: 14px;
+    }
+
+    /* Concept 03 — Bold geometry */
+    .concept--graphic { color: var(--ink); background: var(--sage); }
+    .concept--graphic .concept-label { color: var(--ink-deep); }
+    .graphic-layout {
+      position: relative;
+      min-height: calc(100svh - var(--preview-height));
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(400px, .92fr);
+      align-items: center;
+      gap: clamp(24px, 4vw, 64px);
+      padding: 96px clamp(28px, 6.5vw, 104px) 52px;
+    }
+    .graphic-layout::before {
+      position: absolute;
+      z-index: -2;
+      inset: 0 42% 0 0;
+      content: "";
+      background: var(--paper);
+      clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%);
+    }
+    .graphic-copy { position: relative; z-index: 4; max-width: 760px; }
+    .concept--graphic .brandline { color: var(--forest); }
+    .concept--graphic .hero-title {
+      max-width: 780px;
+      font-family: Onest, Arial, sans-serif;
+      font-size: clamp(58px, 6.6vw, 108px);
+      font-weight: 800;
+      line-height: .91;
+      letter-spacing: -.065em;
+      text-transform: uppercase;
+    }
+    .concept--graphic .hero-title em { display: block; color: var(--forest); font-style: normal; }
+    .concept--graphic .hero-text { max-width: 620px; color: #555763; font-weight: 500; }
+    .concept--graphic .button { border-radius: 0; }
+    .concept--graphic .button--secondary { color: var(--ink); border: 0; border-bottom: 2px solid var(--ink); padding-right: 6px; padding-left: 6px; }
+    .concept--graphic .button--secondary:hover { color: var(--forest); border-color: var(--forest); }
+    .graphic-art {
+      position: relative;
+      min-height: min(72vh, 660px);
+    }
+    .graphic-disc {
+      position: absolute;
+      top: 0;
+      right: -8%;
+      width: min(36vw, 500px);
+      aspect-ratio: 1;
+      background: var(--forest);
+      border-radius: 50%;
+    }
+    .graphic-photo {
+      position: absolute;
+      z-index: 2;
+      top: 7%;
+      right: 8%;
+      width: min(29vw, 390px);
+      height: 76%;
+      overflow: hidden;
+      border: 12px solid var(--paper);
+      background: var(--ink);
+      transform: rotate(2deg);
+    }
+    .graphic-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 56% center;
+      filter: saturate(.75) contrast(1.08);
+      transition: transform .8s var(--ease);
+    }
+    .concept--graphic:hover .graphic-photo img { transform: scale(1.025); }
+    .graphic-coral {
+      position: absolute;
+      z-index: 3;
+      right: 1%;
+      bottom: 2%;
+      width: 46%;
+      height: 22%;
+      background: var(--coral);
+      transform: rotate(-4deg);
+    }
+    .graphic-place {
+      position: absolute;
+      z-index: 5;
+      right: 3%;
+      bottom: 7%;
+      min-width: 180px;
+      padding: 16px 20px;
+      color: var(--cream);
+      background: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transform: rotate(1deg);
+    }
+
     .choice-strip {
       min-height: 170px;
       display: flex;
@@ -323,16 +565,28 @@
     .form-status.is-visible { display: block; }
 
     @media (min-width: 821px) and (max-height: 820px) {
-      .editorial-copy { padding-top: 68px; padding-bottom: 32px; }
+      .concept-label { top: 16px; }
+      .editorial-copy,
+      .calm-layout,
+      .graphic-layout { padding-top: 68px; padding-bottom: 32px; }
       .brandline { margin-bottom: 18px; }
       .hero-text { margin-top: 20px; font-size: 16px; line-height: 1.48; }
       .actions { margin-top: 24px; }
       .editorial-visual { min-height: 520px; }
+      .calm-visual,
+      .graphic-art { min-height: calc(100svh - 156px); }
     }
 
     @media (max-width: 900px) {
-      :root { --preview-height: 0px; }
-      .editorial-layout { grid-template-columns: 1fr; }
+      :root { --preview-height: 58px; }
+      .concept-nav { gap: 12px; padding: 7px 16px; }
+      .concept-nav__brand { display: none; }
+      .concept-nav__links { width: 100%; justify-content: space-between; }
+      .concept-nav a { padding: 0 8px; font-size: 12px; }
+      .concept-label { top: 20px; left: 20px; }
+      .editorial-layout,
+      .calm-layout,
+      .graphic-layout { grid-template-columns: 1fr; }
       .editorial-layout { padding-top: 48px; }
       .editorial-copy { padding: 72px 24px 40px; }
       .concept--editorial .hero-title { font-size: clamp(60px, 15vw, 88px); }
@@ -340,16 +594,36 @@
       .editorial-photo { inset: 0 0 40px; }
       .editorial-slab { right: 0; }
       .editorial-coral { left: -10px; }
+      .calm-layout,
+      .graphic-layout { gap: 28px; padding: 88px 24px 40px; }
+      .concept--calm .hero-title { font-size: clamp(58px, 15vw, 84px); }
+      .calm-visual { min-height: 540px; }
+      .calm-photo { inset: 0 10px 0 10px; }
+      .calm-seal { right: -8px; }
+      .graphic-layout::before { inset: 0 0 48% 0; clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%); }
+      .concept--graphic .hero-title { font-size: clamp(52px, 13.5vw, 78px); }
+      .graphic-art { min-height: 520px; }
+      .graphic-disc { right: -16%; width: min(84vw, 470px); }
+      .graphic-photo { right: 10%; width: min(68vw, 350px); }
       .choice-strip { align-items: flex-start; flex-direction: column; }
     }
 
     @media (max-width: 520px) {
+      .concept-nav a span { display: none; }
       .hero-text { margin-top: 22px; font-size: 16px; line-height: 1.52; }
       .actions { align-items: stretch; flex-direction: column; margin-top: 28px; }
       .button { width: 100%; }
       .editorial-copy::before { margin-bottom: 24px; }
       .editorial-visual { min-height: 420px; }
       .editorial-slab { width: 92%; padding: 18px 20px; }
+      .calm-visual { min-height: 430px; }
+      .calm-photo { border-radius: 48% 48% 14px 14px; }
+      .calm-seal { width: 118px; padding: 14px; font-size: 17px; }
+      .graphic-art { min-height: 430px; }
+      .concept--graphic .hero-title { font-size: 46px; letter-spacing: -.055em; }
+      .graphic-photo { height: 74%; border-width: 8px; }
+      .graphic-coral { width: 58%; }
+      .graphic-place { right: 0; min-width: 164px; }
       .dialog-content { padding: 32px 22px; }
     }
 
@@ -360,36 +634,65 @@
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#concept-1">К первому экрану</a>
+  <a class="skip-link" href="#concept-2">К архивным вариантам</a>
+
+  <nav class="concept-nav" aria-label="Навигация по концепциям">
+    <span class="concept-nav__brand">Архив концепций</span>
+    <div class="concept-nav__links">
+      <a href="#concept-2" aria-current="true">02 <span>Мягкая</span></a>
+      <a href="#concept-3">03 <span>Геометрия</span></a>
+    </div>
+  </nav>
 
   <main>
-    <section class="concept concept--editorial" id="concept-1" aria-labelledby="title-1">
-      <div class="editorial-layout">
-        <div class="editorial-copy">
+    <section class="concept concept--calm" id="concept-2" aria-labelledby="title-2">
+      <p class="concept-label">Концепция 02 · Мягкая уверенность</p>
+      <div class="calm-layout">
+        <div class="calm-copy">
           <p class="brandline">Вера Этерна · имидж-студия</p>
-          <h1 class="hero-title" id="title-1">Салон красоты <em>в Новоселье</em></h1>
+          <h1 class="hero-title" id="title-2">Салон красоты <em>в Новоселье</em></h1>
           <p class="hero-text">Стрижки, окрашивание, уход за волосами, укладки, брови и макияж. Мастера с опытом 5+ лет. Разработка образа под ваш запрос. Запланируйте визит!</p>
           <div class="actions">
             <button class="button button--primary" type="button" data-open-form>Запланировать визит</button>
             <a class="button button--secondary" href="#choice">Выбрать услугу ↓</a>
           </div>
         </div>
-        <div class="editorial-visual" aria-label="Интерьер салона Вера Этерна">
-          <span class="editorial-coral" aria-hidden="true"></span>
-          <div class="editorial-photo">
-            <img src="assets/interior-portrait.jpg" alt="Светлый зал имидж-студии Вера Этерна" width="1583" height="2367">
+        <div class="calm-visual" aria-label="Интерьер салона Вера Этерна">
+          <span class="calm-mark" aria-hidden="true"></span>
+          <div class="calm-photo">
+            <img src="assets/interior-portrait.jpg" alt="Рабочие места в светлом зале Вера Этерна" width="1583" height="2367">
           </div>
-          <div class="editorial-slab">
-            <strong>Невская, 1</strong>
-            <span>Новоселье<br>до 21:00</span>
+          <div class="calm-seal">Вечная вера в красоту</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="concept concept--graphic" id="concept-3" aria-labelledby="title-3">
+      <p class="concept-label">Концепция 03 · Смелая геометрия</p>
+      <div class="graphic-layout">
+        <div class="graphic-copy">
+          <p class="brandline">Вера Этерна · имидж-студия</p>
+          <h1 class="hero-title" id="title-3">Салон красоты <em>в Новоселье</em></h1>
+          <p class="hero-text">Стрижки, окрашивание, уход за волосами, укладки, брови и макияж. Мастера с опытом 5+ лет. Разработка образа под ваш запрос. Запланируйте визит!</p>
+          <div class="actions">
+            <button class="button button--primary" type="button" data-open-form>Запланировать визит</button>
+            <a class="button button--secondary" href="#choice">Выбрать услугу ↓</a>
           </div>
+        </div>
+        <div class="graphic-art" aria-label="Графическая композиция с фотографией салона">
+          <span class="graphic-disc" aria-hidden="true"></span>
+          <div class="graphic-photo">
+            <img src="assets/interior-wide.jpg" alt="Панорамный вид зала Вера Этерна" width="2592" height="1728">
+          </div>
+          <span class="graphic-coral" aria-hidden="true"></span>
+          <div class="graphic-place">Новоселье<br>Невская, 1</div>
         </div>
       </div>
     </section>
 
     <section class="choice-strip" id="choice" aria-label="Следующий блок лендинга">
       <strong>Дальше здесь будет выбор услуги</strong>
-      <p>Это ориентир перехода для вторичной кнопки. Сам блок услуг и большую онлайн-запись добавим на следующем этапе.</p>
+      <p>Это ориентир перехода для вторичной кнопки. Сам блок услуг и большую онлайн-запись добавим после выбора визуального направления.</p>
     </section>
   </main>
 
@@ -437,6 +740,21 @@
       event.preventDefault();
       form.querySelector('.form-status').classList.add('is-visible');
     });
+
+    const navLinks = [...document.querySelectorAll('.concept-nav a')];
+    const concepts = [...document.querySelectorAll('.concept')];
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (!visible) return;
+      navLinks.forEach((link) => {
+        const active = link.hash === `#${visible.target.id}`;
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    }, { threshold: [.35, .6] });
+    concepts.forEach((concept) => observer.observe(concept));
   </script>
 </body>
 </html>
