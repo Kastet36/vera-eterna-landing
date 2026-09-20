@@ -22,8 +22,9 @@
 - Density: comfortable
 - Motion: restrained editorial reveal; complete static fallback
 - Imagery/data role: the real Vera Eterna interior is the main proof point in a tall photographic field on the right
-- Signature move: dark graphite editorial hero, oversized Cormorant title, sage italic line, coral booking action, and an asymmetrical photo slab
+- Signature move: dark graphite editorial hero, oversized Cormorant title, sage italic line, coral booking action, and an asymmetrical photo field with an offset sage underlay
 - Selected direction: concept 01 — Editorial studio; concepts 02 and 03 are preserved in hero-alternatives.html
-- Logo treatment: the header uses only the framed monogram cropped from the supplied raster and recolored to sage; the detailed script wordmark remains excluded from the hero
-- Header: graphite bar with the monogram left, non-interactive section labels centered, and the Novoselye address right; mobile uses a compact two-row layout
+- Logo treatment: the header uses the framed monogram and the Vera Eterna script wordmark, both cropped from the supplied raster and recolored to sage; the redundant hero overline is removed
+- Header: graphite bar with the monogram and script wordmark left, non-interactive section labels centered, and the Novoselye address right; mobile uses a compact two-row layout
+- Hero proof: four agreed benefits sit below the actions in a quiet 2-by-2 editorial list with sage rules, never competing with the coral primary CTA
 - Locked: 2026-09-20
