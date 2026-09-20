@@ -21,10 +21,12 @@
 - Elevation: flat tonal grouping; shadows only where imagery needs separation
 - Density: comfortable
 - Motion: restrained editorial reveal; complete static fallback
-- Imagery/data role: the real Vera Eterna interior is the main proof point in a tall photographic field on the right
+- Imagery/data role: the real Vera Eterna interior leads the hero; the services section uses one full portrait illustration per service as a consistent visual index
 - Signature move: dark graphite editorial hero, oversized Cormorant title, sage italic line, coral booking action, and an asymmetrical photo field with an offset sage underlay
 - Selected direction: concept 01 — Editorial studio; concepts 02 and 03 are preserved in hero-alternatives.html
 - Logo treatment: the header uses the framed monogram and the Vera Eterna script wordmark, both cropped from the supplied raster and recolored to sage; the redundant hero overline is removed
 - Header: graphite bar with the monogram and script wordmark left, non-interactive section labels centered, and the Novoselye address right; mobile uses a compact two-row layout
 - Hero proof: four agreed benefits sit below the actions; desktop uses a quiet 2-by-2 editorial list, while mobile uses compact key facts with short sage rails and no table-like dividers
+- Services: warm cream section with six large alternating text-and-illustration rows, one orientation change per row; mobile stacks copy before image consistently; price is a single green orientation value, never a price table
+- Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
 - Locked: 2026-09-20
