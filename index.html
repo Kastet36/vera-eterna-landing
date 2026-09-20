@@ -456,6 +456,79 @@
       line-height: 1.55;
     }
 
+    .request-cta {
+      position: relative;
+      isolation: isolate;
+      min-height: 560px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      padding: 96px clamp(28px, 6vw, 96px);
+      color: var(--cream);
+      background: var(--ink);
+    }
+    .request-cta__word {
+      position: absolute;
+      z-index: -1;
+      right: clamp(24px, 4vw, 64px);
+      bottom: 32px;
+      color: rgba(245, 242, 233, .045);
+      font-family: Onest, Arial, sans-serif;
+      font-size: clamp(150px, 19vw, 280px);
+      font-weight: 800;
+      line-height: .78;
+      letter-spacing: -.1em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .request-cta__inner {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+    .request-cta__inner::before {
+      width: 72px;
+      height: 8px;
+      display: block;
+      margin-bottom: 24px;
+      content: "";
+      background: var(--coral);
+    }
+    .request-cta h2 {
+      max-width: 880px;
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(64px, 7.5vw, 104px);
+      font-weight: 600;
+      line-height: .88;
+      letter-spacing: -.05em;
+      text-wrap: balance;
+    }
+    .request-cta__text {
+      max-width: 660px;
+      margin: 28px 0 0;
+      color: rgba(245, 242, 233, .8);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .request-cta__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+    .request-cta .button { min-width: 230px; border-radius: 2px; }
+    .request-cta .button--secondary {
+      color: var(--cream);
+      background: transparent;
+      border-color: var(--line-light);
+    }
+    .request-cta .button--secondary:hover {
+      color: var(--ink);
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+
     dialog {
       width: min(480px, calc(100% - 32px));
       max-height: calc(100svh - 32px);
@@ -552,6 +625,8 @@
       .service-media { width: min(100%, 480px); justify-self: center; }
       .service-copy { max-width: 620px; }
       .service-title { font-size: clamp(44px, 9vw, 60px); }
+      .request-cta { min-height: 500px; padding: 80px 24px; }
+      .request-cta__word { right: 24px; bottom: 28px; font-size: clamp(112px, 20vw, 168px); }
     }
 
     @media (max-width: 520px) {
@@ -589,6 +664,18 @@
       .service-price { margin-top: 20px; }
       .service-price strong { font-size: 32px; }
       .services-note { margin-top: 24px; font-size: 12px; }
+      .request-cta { min-height: 520px; padding: 64px 20px 72px; }
+      .request-cta__word {
+        right: 20px;
+        bottom: 24px;
+        font-size: clamp(70px, 20vw, 96px);
+        line-height: .82;
+      }
+      .request-cta__inner::before { width: 48px; height: 5px; margin-bottom: 20px; }
+      .request-cta h2 { font-size: clamp(50px, 14vw, 64px); line-height: .92; }
+      .request-cta__text { margin-top: 20px; font-size: 16px; line-height: 1.5; }
+      .request-cta__actions { flex-direction: column; gap: 8px; margin-top: 28px; }
+      .request-cta .button { min-width: 0; }
       .dialog-content { padding: 32px 22px; }
     }
 
@@ -746,6 +833,18 @@
         </div>
 
         <p class="services-note">Цены указаны «от». Точную стоимость назовёт администратор с учётом длины волос и мастера.</p>
+      </div>
+    </section>
+
+    <section class="request-cta" aria-labelledby="request-cta-title">
+      <span class="request-cta__word" aria-hidden="true">ЭТЕРНА</span>
+      <div class="request-cta__inner">
+        <h2 id="request-cta-title">Подберём услугу<br>под ваш запрос</h2>
+        <p class="request-cta__text">Оставьте имя и телефон. Администратор перезвонит и поможет выбрать услугу и мастера, а время назначит удобное для вас.</p>
+        <div class="request-cta__actions">
+          <button class="button button--primary" type="button">Запланировать визит</button>
+          <button class="button button--secondary" type="button">Уточнить стоимость</button>
+        </div>
       </div>
     </section>
   </main>
