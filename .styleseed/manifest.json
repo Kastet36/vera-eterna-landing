@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "engineVersion": "3.1.0",
-  "generatedAt": "2026-09-20T18:42:47.434Z",
+  "generatedAt": "2026-09-20T18:57:25.615Z",
   "selection": {
     "agent": "codex",
     "grammar": "commerce-conversion",
@@ -14,8 +14,8 @@
   },
   "bundle": {
     "path": ".styleseed/effective-rules.md",
-    "sha256": "92ff6f538921130d81ff778649e929bbe6e73731a46ba826d7ffbe7b175c97d6",
-    "bytes": 15745
+    "sha256": "948fabcca11e76241d015b9ab8a77d2b07879298afd05ba65246e040935f97e4",
+    "bytes": 15867
   },
   "sources": [
     {
@@ -55,8 +55,8 @@
     },
     {
       "id": "lock",
-      "sha256": "38cca5558206351ca9d55db9af9d2cc287a7b8dea4f7eb73b8af62d04ee4bf81",
-      "bytes": 2448
+      "sha256": "f0b44b3b7ab5b72bc9c21e11c0259a6c07b8242dcfceaf94ab665a254170146d",
+      "bytes": 2570
     },
     {
       "id": "craft",
