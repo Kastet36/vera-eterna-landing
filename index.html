@@ -229,6 +229,7 @@
       content: "";
       background: var(--sage);
     }
+    .benefit-mobile { display: none; }
     .button {
       min-height: 56px;
       display: inline-flex;
@@ -447,12 +448,28 @@
     }
 
     @media (max-width: 520px) {
-      .hero-text { margin-top: 22px; font-size: 16px; line-height: 1.52; }
-      .hero-benefits { gap: 0 16px; margin-top: 24px; }
-      .hero-benefits li { align-items: flex-start; min-height: 64px; padding: 12px 0 12px 24px; font-size: 13px; }
-      .actions { align-items: stretch; flex-direction: column; margin-top: 28px; }
-      .button { width: 100%; }
-      .editorial-copy::before { margin-bottom: 24px; }
+      .editorial-layout { padding-top: 0; }
+      .editorial-copy { padding: 32px 24px 24px; }
+      .editorial-copy::before { width: 48px; height: 5px; margin-bottom: 20px; }
+      .hero-text { margin-top: 18px; font-size: 16px; line-height: 1.45; }
+      .actions { align-items: stretch; flex-direction: column; gap: 8px; margin-top: 20px; }
+      .button { width: 100%; min-height: 52px; }
+      .hero-benefits {
+        gap: 18px 20px;
+        margin-top: 20px;
+        border-top: 0;
+      }
+      .hero-benefits li {
+        min-height: 46px;
+        align-items: flex-start;
+        padding: 0 0 0 14px;
+        border-bottom: 0;
+      }
+      .hero-benefits li::before { top: 2px; width: 2px; height: 40px; }
+      .benefit-full { display: none; }
+      .benefit-mobile { display: flex; flex-direction: column; gap: 5px; }
+      .benefit-mobile strong { color: var(--cream); font-size: 18px; font-weight: 750; line-height: 1; }
+      .benefit-mobile span { color: rgba(245, 242, 233, .7); font-size: 12px; font-weight: 500; line-height: 1.25; }
       .editorial-visual { min-height: 420px; }
       .dialog-content { padding: 32px 22px; }
     }
@@ -506,10 +523,22 @@
             <a class="button button--secondary" href="#choice">Выбрать услугу ↓</a>
           </div>
           <ul class="hero-benefits" aria-label="Преимущества салона">
-            <li>Мастера с опытом 5+ лет</li>
-            <li>Салон в центре Новоселья</li>
-            <li>Работаем до 21:00</li>
-            <li>Волосы, брови и макияж за один визит</li>
+            <li>
+              <span class="benefit-full">Мастера с опытом 5+ лет</span>
+              <span class="benefit-mobile"><strong>5+ лет</strong><span>опыт мастеров</span></span>
+            </li>
+            <li>
+              <span class="benefit-full">Салон в центре Новоселья</span>
+              <span class="benefit-mobile"><strong>В центре</strong><span>Новоселья</span></span>
+            </li>
+            <li>
+              <span class="benefit-full">Работаем до 21:00</span>
+              <span class="benefit-mobile"><strong>До 21:00</strong><span>работаем</span></span>
+            </li>
+            <li>
+              <span class="benefit-full">Волосы, брови и макияж за один визит</span>
+              <span class="benefit-mobile"><strong>1 визит</strong><span>волосы, брови, макияж</span></span>
+            </li>
           </ul>
         </div>
         <div class="editorial-visual" aria-label="Интерьер салона Вера Этерна">
