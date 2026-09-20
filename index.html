@@ -341,18 +341,37 @@
     }
 
     .services {
-      padding: 88px clamp(28px, 6vw, 96px) 72px;
+      padding: 0;
       color: var(--ink);
       background: var(--cream);
       scroll-margin-top: 24px;
     }
     .services-head {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: 64px clamp(28px, 6vw, 96px) 56px;
+      color: var(--cream);
+      background: var(--ink);
+    }
+    .services-head::after {
+      position: absolute;
+      z-index: -1;
+      right: -3vw;
+      bottom: -.24em;
+      content: "ЭТЕРНА";
+      color: rgba(245, 242, 233, .04);
+      font-size: clamp(140px, 20vw, 320px);
+      font-weight: 800;
+      line-height: .75;
+      letter-spacing: -.1em;
+      pointer-events: none;
+    }
+    .services-head__inner {
       max-width: 1320px;
       margin: 0 auto;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--line-dark);
     }
-    .services-head::before {
+    .services-head__inner::before {
       width: 72px;
       height: 8px;
       display: block;
@@ -368,6 +387,7 @@
       line-height: .8;
       letter-spacing: -.055em;
     }
+    .services-body { padding: 0 clamp(28px, 6vw, 96px) 72px; }
     .services-list { max-width: 1320px; margin: 0 auto; }
     .service-row {
       display: grid;
@@ -533,8 +553,8 @@
       .editorial-photo { inset: 0 0 40px; }
       .editorial-sage { right: 0; width: 82%; height: 64px; }
       .editorial-coral { left: -10px; }
-      .services { padding: 64px 24px 48px; }
-      .services-head { padding-bottom: 24px; }
+      .services-head { padding: 56px 24px 48px; }
+      .services-body { padding: 0 24px 48px; }
       .services h2 { font-size: clamp(64px, 12vw, 88px); }
       .service-row { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
       .service-row:nth-child(even) .service-copy,
@@ -569,9 +589,10 @@
       .benefit-mobile strong { color: var(--cream); font-size: 18px; font-weight: 750; line-height: 1; }
       .benefit-mobile span { color: rgba(245, 242, 233, .7); font-size: 12px; font-weight: 500; line-height: 1.25; }
       .editorial-visual { min-height: 420px; }
-      .services { padding: 48px 20px 48px; }
-      .services-head { padding-bottom: 24px; }
-      .services-head::before { width: 48px; height: 5px; margin-bottom: 20px; }
+      .services-head { padding: 40px 20px 36px; }
+      .services-head::after { right: -32px; bottom: -16px; font-size: 120px; }
+      .services-body { padding: 0 20px 48px; }
+      .services-head__inner::before { width: 48px; height: 5px; margin-bottom: 20px; }
       .services h2 { font-size: 58px; }
       .service-row { gap: 20px; padding: 40px 0; }
       .service-title { font-size: 40px; line-height: .96; }
@@ -661,10 +682,13 @@
 
     <section class="services" id="services" aria-labelledby="services-title">
       <header class="services-head">
-        <h2 id="services-title">Услуги</h2>
+        <div class="services-head__inner">
+          <h2 id="services-title">Услуги</h2>
+        </div>
       </header>
 
-      <div class="services-list">
+      <div class="services-body">
+        <div class="services-list">
         <article class="service-row">
           <div class="service-copy">
             <h3 class="service-title">Женские стрижки и укладки</h3>
@@ -730,9 +754,10 @@
             <img src="assets/services/makeup-look.png" alt="Иллюстрация макияжа и образа" width="1122" height="1402" loading="lazy" decoding="async">
           </figure>
         </article>
-      </div>
+        </div>
 
-      <p class="services-note">Цены указаны «от». Точную стоимость назовёт администратор с учётом длины волос и мастера.</p>
+        <p class="services-note">Цены указаны «от». Точную стоимость назовёт администратор с учётом длины волос и мастера.</p>
+      </div>
     </section>
   </main>
 

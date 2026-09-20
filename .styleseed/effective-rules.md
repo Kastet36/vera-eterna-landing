@@ -225,7 +225,7 @@ drift, but they never choose or rewrite the design philosophy after the fact.
 - Logo treatment: the header uses the framed monogram and the Vera Eterna script wordmark, both cropped from the supplied raster and recolored to sage; the redundant hero overline is removed
 - Header: graphite bar with the monogram and script wordmark left, non-interactive section labels centered, and the Novoselye address right; mobile uses a compact two-row layout
 - Hero proof: four agreed benefits sit below the actions; desktop uses a quiet 2-by-2 editorial list, while mobile uses compact key facts with short sage rails and no table-like dividers
-- Services: warm cream section with six compact alternating text-and-square-illustration rows, one orientation change per row; mobile stacks copy before image consistently; price is a single green orientation value, never a price table
+- Services: dark graphite section intro continues the hero with a faint ETERNA wordmark, then a warm cream catalogue with six compact alternating text-and-square-illustration rows; mobile stacks copy before image consistently; price is a single green orientation value, never a price table
 - Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
 - Locked: 2026-09-20
 
