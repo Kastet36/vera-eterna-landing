@@ -341,7 +341,7 @@
     }
 
     .services {
-      padding: 112px clamp(28px, 6vw, 96px) 96px;
+      padding: 88px clamp(28px, 6vw, 96px) 72px;
       color: var(--ink);
       background: var(--cream);
       scroll-margin-top: 24px;
@@ -349,21 +349,21 @@
     .services-head {
       max-width: 1320px;
       margin: 0 auto;
-      padding-bottom: 40px;
+      padding-bottom: 32px;
       border-bottom: 1px solid var(--line-dark);
     }
     .services-head::before {
       width: 72px;
       height: 8px;
       display: block;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       content: "";
       background: var(--coral);
     }
     .services h2 {
       margin: 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(80px, 10vw, 144px);
+      font-size: clamp(72px, 8vw, 112px);
       font-weight: 600;
       line-height: .8;
       letter-spacing: -.055em;
@@ -371,10 +371,10 @@
     .services-list { max-width: 1320px; margin: 0 auto; }
     .service-row {
       display: grid;
-      grid-template-columns: minmax(0, .88fr) minmax(420px, 1.12fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       align-items: center;
-      gap: clamp(56px, 8vw, 136px);
-      padding: 80px 0;
+      gap: clamp(48px, 6vw, 96px);
+      padding: 56px 0;
       border-bottom: 1px solid var(--line-dark);
     }
     .service-row:nth-child(even) .service-copy { order: 2; }
@@ -383,7 +383,7 @@
     .service-title {
       margin: 0;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(52px, 5.4vw, 82px);
+      font-size: clamp(46px, 4.4vw, 64px);
       font-weight: 600;
       line-height: .92;
       letter-spacing: -.045em;
@@ -391,16 +391,16 @@
     }
     .service-description {
       max-width: 520px;
-      margin: 24px 0 0;
+      margin: 20px 0 0;
       color: #60616a;
       font-size: 17px;
-      line-height: 1.62;
+      line-height: 1.55;
     }
     .service-price {
       display: flex;
       align-items: baseline;
       gap: 10px;
-      margin: 32px 0 0;
+      margin: 24px 0 0;
       color: var(--forest);
     }
     .service-price span {
@@ -411,14 +411,20 @@
     }
     .service-price strong {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 42px;
+      font-size: 36px;
       font-weight: 600;
       line-height: 1;
       letter-spacing: -.035em;
     }
+    .service-price small {
+      font-family: "Onest", Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
     .service-media {
       position: relative;
-      width: min(100%, 520px);
+      width: min(100%, 420px);
       margin: 0;
       justify-self: end;
       overflow: hidden;
@@ -426,9 +432,10 @@
     }
     .service-media img {
       width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 5;
+      height: 100%;
+      aspect-ratio: 1;
       object-fit: cover;
+      object-position: center top;
       transition: transform .8s var(--ease);
     }
     .service-row:hover .service-media img { transform: scale(1.018); }
@@ -526,16 +533,16 @@
       .editorial-photo { inset: 0 0 40px; }
       .editorial-sage { right: 0; width: 82%; height: 64px; }
       .editorial-coral { left: -10px; }
-      .services { padding: 80px 24px 64px; }
-      .services-head { padding-bottom: 32px; }
-      .services h2 { font-size: clamp(72px, 14vw, 104px); }
-      .service-row { grid-template-columns: 1fr; gap: 32px; padding: 64px 0; }
+      .services { padding: 64px 24px 48px; }
+      .services-head { padding-bottom: 24px; }
+      .services h2 { font-size: clamp(64px, 12vw, 88px); }
+      .service-row { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
       .service-row:nth-child(even) .service-copy,
       .service-row:nth-child(even) .service-media { order: initial; }
       .service-row:nth-child(even) .service-media,
-      .service-media { width: min(100%, 560px); justify-self: center; }
+      .service-media { width: min(100%, 480px); justify-self: center; }
       .service-copy { max-width: 620px; }
-      .service-title { font-size: clamp(52px, 10vw, 72px); }
+      .service-title { font-size: clamp(44px, 9vw, 60px); }
     }
 
     @media (max-width: 520px) {
@@ -562,15 +569,15 @@
       .benefit-mobile strong { color: var(--cream); font-size: 18px; font-weight: 750; line-height: 1; }
       .benefit-mobile span { color: rgba(245, 242, 233, .7); font-size: 12px; font-weight: 500; line-height: 1.25; }
       .editorial-visual { min-height: 420px; }
-      .services { padding: 64px 20px 56px; }
+      .services { padding: 48px 20px 48px; }
       .services-head { padding-bottom: 24px; }
       .services-head::before { width: 48px; height: 5px; margin-bottom: 20px; }
-      .services h2 { font-size: 68px; }
-      .service-row { gap: 24px; padding: 48px 0; }
-      .service-title { font-size: 46px; line-height: .94; }
+      .services h2 { font-size: 58px; }
+      .service-row { gap: 20px; padding: 40px 0; }
+      .service-title { font-size: 40px; line-height: .96; }
       .service-description { margin-top: 18px; font-size: 16px; line-height: 1.55; }
-      .service-price { margin-top: 24px; }
-      .service-price strong { font-size: 36px; }
+      .service-price { margin-top: 20px; }
+      .service-price strong { font-size: 32px; }
       .services-note { margin-top: 24px; font-size: 12px; }
       .dialog-content { padding: 32px 22px; }
     }
@@ -662,7 +669,7 @@
           <div class="service-copy">
             <h3 class="service-title">Женские стрижки и укладки</h3>
             <p class="service-description">Стрижки, укладки и причёски. Делаем биозавивку, если хочется объёма и локонов.</p>
-            <p class="service-price"><span>от</span><strong>800 ₽</strong></p>
+            <p class="service-price"><span>от</span><strong>800 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/womens-cuts.png" alt="Иллюстрация женской стрижки" width="1122" height="1402" loading="lazy" decoding="async">
@@ -673,7 +680,7 @@
           <div class="service-copy">
             <h3 class="service-title">Окрашивание</h3>
             <p class="service-description">Один тон, тонирование, сложные техники и AirTouch. Мастер подберёт оттенок и технику под ваши волосы и пожелания.</p>
-            <p class="service-price"><span>от</span><strong>2 500 ₽</strong></p>
+            <p class="service-price"><span>от</span><strong>2 500 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/coloring.png" alt="Иллюстрация окрашивания волос" width="1122" height="1402" loading="lazy" decoding="async">
@@ -684,7 +691,7 @@
           <div class="service-copy">
             <h3 class="service-title">Мужские стрижки и барбер</h3>
             <p class="service-description">Мужская стрижка, стрижка машинкой и фейд, оформление бороды, королевское бритьё. Можно сделать стрижку с бородой за один визит.</p>
-            <p class="service-price"><span>от</span><strong>1 000 ₽</strong></p>
+            <p class="service-price"><span>от</span><strong>1 000 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/mens-cut.png" alt="Иллюстрация мужской стрижки и оформления бороды" width="1122" height="1402" loading="lazy" decoding="async">
@@ -695,7 +702,7 @@
           <div class="service-copy">
             <h3 class="service-title">Уход и восстановление</h3>
             <p class="service-description">Ботокс, кератиновое выпрямление, биксипластия и спа для волос и кожи головы. Подскажем, что подойдёт вашим волосам.</p>
-            <p class="service-price"><span>от</span><strong>2 000 ₽</strong></p>
+            <p class="service-price"><span>от</span><strong>2 000 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/hair-care.png" alt="Иллюстрация ухода и восстановления волос" width="1122" height="1402" loading="lazy" decoding="async">
@@ -706,7 +713,7 @@
           <div class="service-copy">
             <h3 class="service-title">Брови</h3>
             <p class="service-description">Коррекция и окрашивание бровей. Подберём форму и оттенок под ваше лицо.</p>
-            <p class="service-price"><span>от</span><strong>900 ₽</strong></p>
+            <p class="service-price"><span>от</span><strong>900 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/brows.png" alt="Иллюстрация оформления бровей" width="1122" height="1402" loading="lazy" decoding="async">
@@ -717,7 +724,7 @@
           <div class="service-copy">
             <h3 class="service-title">Макияж и образ</h3>
             <p class="service-description">Макияж и укладка для события или просто для себя. Визажист и парикмахер сделают образ за один визит.</p>
-            <p class="service-price service-price--fixed"><strong>7 900 ₽</strong></p>
+            <p class="service-price service-price--fixed"><strong>7 900 <small>руб.</small></strong></p>
           </div>
           <figure class="service-media">
             <img src="assets/services/makeup-look.png" alt="Иллюстрация макияжа и образа" width="1122" height="1402" loading="lazy" decoding="async">
