@@ -215,6 +215,7 @@ drift, but they never choose or rewrite the design philosophy after the fact.
 - Secondary accent: #23684D
 - Canvas: #F5F2E9
 - Font: Onest + Cormorant Garamond
+- Numerals: functional values such as phone numbers and working hours use Onest with lining tabular numerals; Cormorant Garamond remains for editorial headings and prose
 - Radius: restrained, with sharp editorial geometry and softly rounded controls
 - Elevation: flat tonal grouping; shadows only where imagery needs separation
 - Density: comfortable overall; compact within the services catalogue

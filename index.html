@@ -421,11 +421,12 @@
       text-transform: uppercase;
     }
     .service-price strong {
-      font-family: "Cormorant Garamond", Georgia, serif;
+      font-family: "Onest", Arial, sans-serif;
       font-size: 36px;
-      font-weight: 600;
+      font-variant-numeric: lining-nums tabular-nums;
+      font-weight: 650;
       line-height: 1;
-      letter-spacing: -.035em;
+      letter-spacing: -.025em;
     }
     .service-price small {
       font-family: "Onest", Arial, sans-serif;
@@ -1160,6 +1161,15 @@
       line-height: 1.08;
       letter-spacing: -.025em;
     }
+    .contact-list__item--functional dd {
+      font-family: "Onest", Arial, sans-serif;
+      font-size: clamp(28px, 2.4vw, 36px);
+      font-variant-numeric: lining-nums tabular-nums;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -.025em;
+    }
+    .contact-list__item--phone dd { white-space: nowrap; }
     .contact-list a { color: inherit; text-decoration-color: rgba(65, 67, 79, .35); text-underline-offset: 5px; }
     .contact-list a:hover { color: var(--forest); }
     .contact-map {
@@ -1971,11 +1981,11 @@
             <dt>Адрес</dt>
             <dd>Невская ул., 1<br>город Новоселье</dd>
           </div>
-          <div class="contact-list__item">
+          <div class="contact-list__item contact-list__item--functional contact-list__item--phone">
             <dt>Телефон</dt>
             <dd><a href="tel:+79992323497">+7 (999) 232-34-97</a></dd>
           </div>
-          <div class="contact-list__item">
+          <div class="contact-list__item contact-list__item--functional">
             <dt>Время работы</dt>
             <dd>Работаем до 21:00</dd>
           </div>
