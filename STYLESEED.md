@@ -31,9 +31,12 @@
 - Request CTA: a full-width graphite pause after the light services catalogue; the complete faint ETERNA word stays inside the section, while one coral primary button and one quiet outlined secondary button remain visually distinct; forms are intentionally deferred
 - Masters: a warm cream editorial section follows the dark request CTA; three real portraits form one compact desktop row, while mobile uses a horizontal snap carousel; names are factual, specialties and experience are provisional examples
 - Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
-- Works: three supplied portrait examples form an asymmetric dark editorial gallery; it can expand later without inventing case metadata
-- Reviews: a compact sage placeholder explicitly reserves space for a future Yandex Maps widget and contains no fabricated review content
-- About: editorial story, a dedicated cropped-logo band, and one compact horizontal interior filmstrip preserve all twelve mixed-aspect-ratio photos without increasing page height excessively
-- Online booking CTA: one forest conversion block with a single coral link to the booking flow
-- Contacts and footer: factual address, two phone numbers, closing time, a map with an offline visual fallback, and non-clickable legal placeholders until URLs are supplied
+- Lower-section system: all added sections inherit the existing 1320px content width, gutters, section-title scale, body scale, coral title rail, and button geometry already used by Services, Masters, and the first CTA
+- Surface rule: graphite and cream are the only full-section backgrounds; sage and forest are accents, labels, and control states, never full new-section surfaces
+- Works: three supplied portrait examples form one even graphite gallery; every image remains fully visible within a viewport-safe height, and mobile uses the shared horizontal gallery pattern
+- Gallery controls: Works on overflow and Interior use the same explicit previous/next buttons, visible counter, native touch scrolling, and keyboard arrows; hidden scrollbars are not the primary affordance
+- Reviews: a compact cream placeholder explicitly reserves space for a future Yandex Maps widget and contains no fabricated review content or competing display headline
+- About: on desktop the supplied logo sits left and the heading with story sits right in one row; mobile stacks them; one compact horizontal interior gallery below preserves all twelve mixed-aspect-ratio photos
+- Online booking CTA: one graphite conversion block matching the earlier request CTA, with a single coral link to the booking flow
+- Contacts and footer: factual address, only +7 (999) 232-34-97, closing time, a neutral cream map fallback, and non-clickable legal placeholders until URLs are supplied
 - Locked: 2026-09-21
