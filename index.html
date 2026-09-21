@@ -910,26 +910,6 @@
       border: 0;
       cursor: zoom-in;
     }
-    .interior-frame__open {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      min-height: 36px;
-      display: inline-flex;
-      align-items: center;
-      padding: 0 12px;
-      color: var(--cream);
-      background: rgba(48, 50, 59, .84);
-      font-size: 12px;
-      font-weight: 750;
-      letter-spacing: .03em;
-      transition: color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
-    }
-    .interior-frame:hover .interior-frame__open {
-      color: var(--ink);
-      background: var(--sage);
-      transform: translateY(-2px);
-    }
     .interior-frame:focus-visible {
       outline: 3px solid var(--coral);
       outline-offset: -3px;
@@ -1155,19 +1135,12 @@
     }
     .contact-list dd {
       margin: 0;
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 600;
-      line-height: 1.08;
-      letter-spacing: -.025em;
-    }
-    .contact-list__item--functional dd {
       font-family: "Onest", Arial, sans-serif;
       font-size: clamp(28px, 2.4vw, 36px);
       font-variant-numeric: lining-nums tabular-nums;
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -.025em;
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -.02em;
     }
     .contact-list__item--phone dd { white-space: nowrap; }
     .contact-list a { color: inherit; text-decoration-color: rgba(65, 67, 79, .35); text-underline-offset: 5px; }
@@ -1633,10 +1606,6 @@
         max-width: calc(100% - 40px);
         font-size: 12px;
       }
-      .interior-frame__open {
-        right: auto;
-        left: 12px;
-      }
 
       .reviews__status { font-size: 16px; }
       .work-card {
@@ -1942,18 +1911,18 @@
           </div>
         </div>
         <div class="interior-gallery__track" id="interior-gallery-track" data-gallery-track tabindex="0" aria-label="Фотографии интерьера салона">
-          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"></button>
         </div>
       </div>
     </section>
@@ -1981,11 +1950,11 @@
             <dt>Адрес</dt>
             <dd>Невская ул., 1<br>город Новоселье</dd>
           </div>
-          <div class="contact-list__item contact-list__item--functional contact-list__item--phone">
+          <div class="contact-list__item contact-list__item--phone">
             <dt>Телефон</dt>
             <dd><a href="tel:+79992323497">+7 (999) 232-34-97</a></dd>
           </div>
-          <div class="contact-list__item contact-list__item--functional">
+          <div class="contact-list__item">
             <dt>Время работы</dt>
             <dd>Работаем до 21:00</dd>
           </div>
