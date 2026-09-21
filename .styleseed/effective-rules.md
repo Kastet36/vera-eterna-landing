@@ -229,7 +229,12 @@ drift, but they never choose or rewrite the design philosophy after the fact.
 - Request CTA: a full-width graphite pause after the light services catalogue; the complete faint ETERNA word stays inside the section, while one coral primary button and one quiet outlined secondary button remain visually distinct; forms are intentionally deferred
 - Masters: a warm cream editorial section follows the dark request CTA; three real portraits form one compact desktop row, while mobile uses a horizontal snap carousel; names are factual, specialties and experience are provisional examples
 - Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
-- Locked: 2026-09-20
+- Works: three supplied portrait examples form an asymmetric dark editorial gallery; it can expand later without inventing case metadata
+- Reviews: a compact sage placeholder explicitly reserves space for a future Yandex Maps widget and contains no fabricated review content
+- About: editorial story, a dedicated cropped-logo band, and one compact horizontal interior filmstrip preserve all twelve mixed-aspect-ratio photos without increasing page height excessively
+- Online booking CTA: one forest conversion block with a single coral link to the booking flow
+- Contacts and footer: factual address, two phone numbers, closing time, a map with an offline visual fallback, and non-clickable legal placeholders until URLs are supplied
+- Locked: 2026-09-21
 
 ---
 
