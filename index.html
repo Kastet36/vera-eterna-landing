@@ -902,6 +902,172 @@
     }
     .interior-frame:hover img { transform: scale(1.018); }
 
+    .interior-frame {
+      position: relative;
+      padding: 0;
+      color: var(--cream);
+      border: 0;
+      cursor: zoom-in;
+    }
+    .interior-frame__open {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      color: var(--cream);
+      background: rgba(48, 50, 59, .84);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .03em;
+      transition: color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
+    }
+    .interior-frame:hover .interior-frame__open {
+      color: var(--ink);
+      background: var(--sage);
+      transform: translateY(-2px);
+    }
+    .interior-frame:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: -3px;
+    }
+
+    dialog.lightbox {
+      inset: 0;
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color: var(--cream);
+      background: rgba(35, 37, 44, .98);
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    dialog.lightbox::backdrop { background: rgba(35, 37, 44, .98); }
+    .lightbox__shell {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      padding: 20px 24px 24px;
+    }
+    .lightbox__header {
+      min-height: 56px;
+      display: grid;
+      grid-template-columns: 1fr auto 56px;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid rgba(245, 242, 233, .18);
+    }
+    .lightbox__title {
+      margin: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .lightbox__count {
+      margin: 0;
+      color: rgba(245, 242, 233, .76);
+      font-size: 13px;
+      font-variant-numeric: tabular-nums;
+      font-weight: 750;
+      letter-spacing: .08em;
+    }
+    .lightbox__close,
+    .lightbox__control {
+      display: grid;
+      place-items: center;
+      padding: 0;
+      color: var(--cream);
+      background: transparent;
+      border: 1px solid rgba(245, 242, 233, .48);
+      border-radius: 2px;
+      font: inherit;
+      line-height: 1;
+      transition: color .25s var(--ease), background .25s var(--ease), opacity .25s var(--ease);
+    }
+    .lightbox__close {
+      width: 48px;
+      height: 48px;
+      justify-self: end;
+      font-size: 28px;
+    }
+    .lightbox__stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      align-items: center;
+      gap: 24px;
+      padding-top: 20px;
+    }
+    .lightbox__control {
+      width: 56px;
+      height: 56px;
+      font-size: 28px;
+    }
+    .lightbox__close:hover,
+    .lightbox__control:hover:not(:disabled) {
+      color: var(--ink);
+      background: var(--sage);
+      border-color: var(--sage);
+    }
+    .lightbox__control:disabled {
+      opacity: .22;
+      cursor: default;
+    }
+    .lightbox__figure {
+      position: relative;
+      min-width: 0;
+      height: calc(100svh - 120px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0;
+      touch-action: pan-y;
+    }
+    .lightbox__image {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: calc(100% - 36px);
+      object-fit: contain;
+      opacity: 0;
+      transition: opacity .3s var(--ease);
+    }
+    .lightbox__image.is-loaded { opacity: 1; }
+    .lightbox__caption {
+      min-height: 24px;
+      margin: 0;
+      color: rgba(245, 242, 233, .66);
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .lightbox__loading {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      margin: 0;
+      color: rgba(245, 242, 233, .7);
+      font-size: 13px;
+      font-weight: 650;
+      transform: translate(-50%, -50%);
+    }
+    .lightbox__loading[hidden] { display: none; }
+    .lightbox__close:focus-visible,
+    .lightbox__control:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 3px;
+    }
+
     .booking-cta {
       position: relative;
       isolation: isolate;
@@ -1415,6 +1581,53 @@
         gap: 6px;
       }
       .gallery-button { width: 44px; height: 44px; }
+
+      .lightbox__shell { padding: 12px 12px 16px; }
+      .lightbox__header {
+        min-height: 52px;
+        grid-template-columns: minmax(0, 1fr) auto 48px;
+        gap: 12px;
+      }
+      .lightbox__title {
+        overflow: hidden;
+        font-size: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .lightbox__close { width: 44px; height: 44px; }
+      .lightbox__stage {
+        position: relative;
+        display: block;
+        padding-top: 12px;
+      }
+      .lightbox__figure {
+        height: calc(100svh - 92px);
+        gap: 8px;
+      }
+      .lightbox__image {
+        max-width: 100%;
+        max-height: calc(100% - 40px);
+      }
+      .lightbox__control {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        width: 44px;
+        height: 52px;
+        background: rgba(48, 50, 59, .78);
+        transform: translateY(-50%);
+      }
+      .lightbox__control--prev { left: 4px; }
+      .lightbox__control--next { right: 4px; }
+      .lightbox__caption {
+        max-width: calc(100% - 40px);
+        font-size: 12px;
+      }
+      .interior-frame__open {
+        right: auto;
+        left: 12px;
+      }
+
       .reviews__status { font-size: 16px; }
       .work-card {
         height: min(56svh, 426px);
@@ -1719,18 +1932,18 @@
           </div>
         </div>
         <div class="interior-gallery__track" id="interior-gallery-track" data-gallery-track tabindex="0" aria-label="Фотографии интерьера салона">
-          <figure class="interior-frame" style="aspect-ratio: 2385 / 1590"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 2372 / 1581"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 2304 / 1728"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1266 / 1898"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 2592 / 1728"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1728 / 2592"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1728 / 2592"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 2592 / 1728"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1425 / 2138"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1583 / 2367"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 850 / 1133"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"></figure>
-          <figure class="interior-frame" style="aspect-ratio: 1280 / 960"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"></figure>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"><span class="interior-frame__open" aria-hidden="true">Увеличить</span></button>
         </div>
       </div>
     </section>
@@ -1802,6 +2015,25 @@
       </div>
     </div>
   </footer>
+
+  <dialog class="lightbox" id="interior-lightbox" aria-labelledby="interior-lightbox-title">
+    <div class="lightbox__shell">
+      <header class="lightbox__header">
+        <h2 class="lightbox__title" id="interior-lightbox-title">Интерьер салона</h2>
+        <p class="lightbox__count" aria-live="polite"><span data-lightbox-current>1</span> / <span data-lightbox-total>12</span></p>
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Закрыть полноэкранный просмотр">×</button>
+      </header>
+      <div class="lightbox__stage" data-lightbox-stage>
+        <button class="lightbox__control lightbox__control--prev" type="button" data-lightbox-prev aria-label="Предыдущее фото">←</button>
+        <figure class="lightbox__figure">
+          <p class="lightbox__loading" data-lightbox-loading role="status">Загрузка фото…</p>
+          <img class="lightbox__image" data-lightbox-image src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна">
+          <figcaption class="lightbox__caption" data-lightbox-caption>Интерьер салона Вера Этерна</figcaption>
+        </figure>
+        <button class="lightbox__control lightbox__control--next" type="button" data-lightbox-next aria-label="Следующее фото">→</button>
+      </div>
+    </div>
+  </dialog>
 
   <dialog id="visit-form" aria-labelledby="visit-form-title">
     <div class="dialog-content">
@@ -1917,6 +2149,131 @@
       });
       resizeObserver.observe(track);
       renderState();
+    });
+
+
+    const lightbox = document.querySelector('#interior-lightbox');
+    const lightboxTriggers = Array.from(document.querySelectorAll('[data-lightbox-open]'));
+    const lightboxImage = lightbox.querySelector('[data-lightbox-image]');
+    const lightboxCaption = lightbox.querySelector('[data-lightbox-caption]');
+    const lightboxLoading = lightbox.querySelector('[data-lightbox-loading]');
+    const lightboxCurrent = lightbox.querySelector('[data-lightbox-current]');
+    const lightboxTotal = lightbox.querySelector('[data-lightbox-total]');
+    const lightboxPrevious = lightbox.querySelector('[data-lightbox-prev]');
+    const lightboxNext = lightbox.querySelector('[data-lightbox-next]');
+    const lightboxStage = lightbox.querySelector('[data-lightbox-stage]');
+    const lightboxFigure = lightbox.querySelector('.lightbox__figure');
+    const lightboxItems = lightboxTriggers.map((trigger) => {
+      const image = trigger.querySelector('img');
+      return {
+        src: image.getAttribute('src'),
+        alt: image.getAttribute('alt')
+      };
+    });
+    let lightboxIndex = 0;
+    let lightboxReturnFocus = null;
+    let lightboxTouchStartX = 0;
+    let lightboxTouchStartY = 0;
+
+    lightboxTotal.textContent = String(lightboxItems.length);
+
+    const finishLightboxLoading = () => {
+      lightboxLoading.hidden = true;
+      lightboxImage.classList.add('is-loaded');
+    };
+
+    const showLightboxImage = (index) => {
+      lightboxIndex = Math.max(0, Math.min(index, lightboxItems.length - 1));
+      const item = lightboxItems[lightboxIndex];
+
+      lightboxImage.classList.remove('is-loaded');
+      lightboxLoading.hidden = false;
+      lightboxLoading.textContent = 'Загрузка фото…';
+      lightboxImage.alt = item.alt;
+      lightboxCaption.textContent = item.alt;
+      lightboxCurrent.textContent = String(lightboxIndex + 1);
+      lightboxPrevious.disabled = lightboxIndex === 0;
+      lightboxNext.disabled = lightboxIndex === lightboxItems.length - 1;
+
+      lightboxImage.onload = finishLightboxLoading;
+      lightboxImage.onerror = () => {
+        lightboxLoading.hidden = false;
+        lightboxLoading.textContent = 'Не удалось загрузить фото';
+      };
+      lightboxImage.src = item.src;
+
+      if (lightboxImage.complete && lightboxImage.naturalWidth > 0) {
+        window.requestAnimationFrame(finishLightboxLoading);
+      }
+
+      [lightboxIndex - 1, lightboxIndex + 1].forEach((nearbyIndex) => {
+        if (lightboxItems[nearbyIndex]) {
+          const preload = new Image();
+          preload.src = lightboxItems[nearbyIndex].src;
+        }
+      });
+    };
+
+    lightboxTriggers.forEach((trigger, index) => {
+      trigger.addEventListener('click', () => {
+        lightboxReturnFocus = trigger;
+        showLightboxImage(index);
+        lightbox.showModal();
+        document.body.style.overflow = 'hidden';
+        window.setTimeout(() => lightbox.querySelector('[data-lightbox-close]').focus(), 0);
+      });
+    });
+
+    const closeLightbox = () => {
+      document.body.style.overflow = '';
+      if (lightbox.open) lightbox.close();
+      window.setTimeout(() => {
+        if (lightboxReturnFocus) lightboxReturnFocus.focus();
+      }, 0);
+    };
+
+    lightboxPrevious.addEventListener('click', () => showLightboxImage(lightboxIndex - 1));
+    lightboxNext.addEventListener('click', () => showLightboxImage(lightboxIndex + 1));
+    lightbox.querySelector('[data-lightbox-close]').addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeLightbox();
+    });
+
+    lightbox.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showLightboxImage(lightboxIndex - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showLightboxImage(lightboxIndex + 1);
+      }
+    });
+
+    lightboxStage.addEventListener('click', (event) => {
+      if (event.target === lightboxStage || event.target === lightboxFigure) closeLightbox();
+    });
+
+    lightboxFigure.addEventListener('touchstart', (event) => {
+      const touch = event.changedTouches[0];
+      lightboxTouchStartX = touch.clientX;
+      lightboxTouchStartY = touch.clientY;
+    }, { passive: true });
+
+    lightboxFigure.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - lightboxTouchStartX;
+      const deltaY = touch.clientY - lightboxTouchStartY;
+
+      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+      showLightboxImage(lightboxIndex + (deltaX < 0 ? 1 : -1));
+    }, { passive: true });
+
+    lightbox.addEventListener('close', () => {
+      document.body.style.overflow = '';
+      if (lightboxReturnFocus) lightboxReturnFocus.focus();
     });
 
     document.querySelectorAll('[data-open-form]').forEach((button) => {
