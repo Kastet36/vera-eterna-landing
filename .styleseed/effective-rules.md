@@ -222,7 +222,7 @@ drift, but they never choose or rewrite the design philosophy after the fact.
 - Imagery/data role: the real Vera Eterna interior leads the hero; the services section uses one square-cropped illustration per service as a consistent visual index
 - Signature move: dark graphite editorial hero, oversized Cormorant title, sage italic line, coral booking action, and an asymmetrical photo field with an offset sage underlay
 - Selected direction: concept 01 — Editorial studio; concepts 02 and 03 are preserved in hero-alternatives.html
-- Logo treatment: the header uses the framed monogram and the Vera Eterna script wordmark, both cropped from the supplied raster and recolored to sage; the redundant hero overline is removed
+- Logo treatment: the header and footer use the same framed monogram plus Vera Eterna script wordmark, both cropped from the supplied raster and recolored to sage; the redundant hero overline is removed
 - Header: graphite bar with the monogram and script wordmark left, non-interactive section labels centered, and the Novoselye address right; mobile uses a compact two-row layout
 - Hero proof: four agreed benefits sit below the actions; desktop uses a quiet 2-by-2 editorial list, while mobile uses compact key facts with short sage rails and no table-like dividers
 - Services: dark graphite section intro continues the hero so the single faint VERA background word can finish below the hero boundary without being cropped; ETERNA is reserved for a future dark section; then a warm cream catalogue begins with six compact alternating text-and-square-illustration rows; mobile stacks copy before image consistently; price is a single green orientation value, never a price table

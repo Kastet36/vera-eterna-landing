@@ -1091,14 +1091,7 @@
       gap: 40px;
       margin: 0 auto;
     }
-    .site-footer__name {
-      margin: 0;
-      color: var(--cream);
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 34px;
-      font-weight: 600;
-      line-height: 1;
-    }
+    .site-footer__brand { margin: 0; }
     .site-footer__meta { margin: 12px 0 0; font-size: 13px; line-height: 1.6; }
     .site-footer__legal {
       display: flex;
@@ -1793,7 +1786,14 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div>
-        <p class="site-footer__name">Вера Этерна</p>
+        <div class="site-brand site-footer__brand" role="img" aria-label="Вера Этерна">
+          <span class="site-logo">
+            <img src="assets/logo.png" alt="" width="778" height="706" loading="lazy" decoding="async">
+          </span>
+          <span class="site-wordmark">
+            <img src="assets/logo.png" alt="" width="778" height="706" loading="lazy" decoding="async">
+          </span>
+        </div>
         <p class="site-footer__meta">Невская ул., 1, Новоселье · +7 (999) 232-34-97</p>
       </div>
       <div class="site-footer__legal" aria-label="Юридическая информация">
