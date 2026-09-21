@@ -696,6 +696,10 @@
       align-items: center;
       gap: 8px;
     }
+    .gallery-controls.gallery-controls--arrows {
+      grid-template-columns: repeat(2, 48px);
+      gap: 16px;
+    }
     .gallery-controls[hidden] { display: none; }
     .gallery-button {
       width: 48px;
@@ -739,24 +743,28 @@
       overflow-x: auto;
       overscroll-behavior-inline: contain;
       scroll-snap-type: inline mandatory;
-      scrollbar-color: var(--sage) transparent;
-      scrollbar-width: thin;
+      scrollbar-width: none;
     }
     .work-card {
       position: relative;
-      flex: 0 0 calc((100% - 40px) / 3);
+      flex: 0 0 min(420px, calc((100% - 40px) / 3));
       min-width: 0;
-      max-height: min(55svh, 520px);
       aspect-ratio: 3 / 4;
       margin: 0;
+      padding: 0;
       overflow: hidden;
-      background: var(--ink);
+      color: inherit;
+      background: transparent;
+      border: 0;
+      font: inherit;
+      cursor: zoom-in;
       scroll-snap-align: start;
     }
     .work-card img {
+      display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       transition: transform .8s var(--ease), filter .8s var(--ease);
     }
     .work-card::after {
@@ -769,6 +777,10 @@
       background: var(--sage);
     }
     .work-card:hover img { transform: scale(1.018); filter: saturate(1.05); }
+    .work-card:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: -3px;
+    }
 
     .reviews {
       padding: 104px clamp(28px, 6vw, 96px);
@@ -951,6 +963,7 @@
       gap: 24px;
       border-bottom: 1px solid rgba(245, 242, 233, .18);
     }
+    .lightbox__header.lightbox__header--no-count { grid-template-columns: 1fr 56px; }
     .lightbox__title {
       margin: 0;
       font-family: "Cormorant Garamond", Georgia, serif;
@@ -1030,6 +1043,7 @@
       transition: opacity .3s var(--ease);
     }
     .lightbox__image.is-loaded { opacity: 1; }
+    .lightbox--works .lightbox__image { max-height: 100%; }
     .lightbox__caption {
       min-height: 24px;
       margin: 0;
@@ -1409,8 +1423,7 @@
         overscroll-behavior-inline: contain;
         scroll-padding-inline: 24px;
         scroll-snap-type: inline mandatory;
-        scrollbar-color: var(--sage) transparent;
-        scrollbar-width: thin;
+        scrollbar-width: none;
       }
       .work-card {
         flex: 0 0 min(70vw, 360px);
@@ -1568,6 +1581,10 @@
         grid-template-columns: 44px minmax(52px, auto) 44px;
         gap: 6px;
       }
+      .gallery-controls.gallery-controls--arrows {
+        grid-template-columns: repeat(2, 44px);
+        gap: 12px;
+      }
       .gallery-button { width: 44px; height: 44px; }
 
       .lightbox__shell { padding: 12px 12px 16px; }
@@ -1576,6 +1593,7 @@
         grid-template-columns: minmax(0, 1fr) auto 48px;
         gap: 12px;
       }
+      .lightbox__header.lightbox__header--no-count { grid-template-columns: minmax(0, 1fr) 48px; }
       .lightbox__title {
         overflow: hidden;
         font-size: 24px;
@@ -1850,37 +1868,36 @@
         </article>
       </div>
     </section>
-    <section class="works" id="works" aria-labelledby="works-title" data-gallery>
+    <section class="works" id="works" aria-labelledby="works-title" data-gallery data-gallery-window>
       <header class="works__header">
         <div class="section-title-wrap">
           <h2 class="section-title" id="works-title">Работы</h2>
         </div>
         <div class="section-side">
           <p class="section-intro">Примеры работ наших мастеров. Галерею будем пополнять новыми результатами.</p>
-          <div class="gallery-controls" data-gallery-controls hidden>
+          <div class="gallery-controls gallery-controls--arrows" data-gallery-controls hidden>
             <button class="gallery-button" type="button" data-gallery-prev aria-label="Предыдущая работа" aria-controls="works-gallery">←</button>
-            <span class="gallery-count" aria-live="polite"><span data-gallery-current>1</span> / <span data-gallery-total>5</span></span>
             <button class="gallery-button" type="button" data-gallery-next aria-label="Следующая работа" aria-controls="works-gallery">→</button>
           </div>
         </div>
       </header>
 
       <div class="works__grid" id="works-gallery" data-gallery-track tabindex="0" aria-label="Галерея примеров работ">
-        <figure class="work-card">
+        <button class="work-card" type="button" data-lightbox-open="works" aria-haspopup="dialog" aria-controls="works-lightbox" aria-label="Открыть пример работы 1 из 5">
           <img src="assets/works/work-1.webp" alt="Пример работы мастера салона: светлые волосы до плеч" width="651" height="868" loading="lazy" decoding="async">
-        </figure>
-        <figure class="work-card">
+        </button>
+        <button class="work-card" type="button" data-lightbox-open="works" aria-haspopup="dialog" aria-controls="works-lightbox" aria-label="Открыть пример работы 2 из 5">
           <img src="assets/works/work-4.webp" alt="Пример работы мастера салона: короткая стрижка холодного оттенка" width="1440" height="1920" loading="lazy" decoding="async">
-        </figure>
-        <figure class="work-card">
+        </button>
+        <button class="work-card" type="button" data-lightbox-open="works" aria-haspopup="dialog" aria-controls="works-lightbox" aria-label="Открыть пример работы 3 из 5">
           <img src="assets/works/work-3.webp" alt="Пример работы мастера салона: длинные волосы тёплого оттенка" width="651" height="868" loading="lazy" decoding="async">
-        </figure>
-        <figure class="work-card">
+        </button>
+        <button class="work-card" type="button" data-lightbox-open="works" aria-haspopup="dialog" aria-controls="works-lightbox" aria-label="Открыть пример работы 4 из 5">
           <img src="assets/works/work-5.webp" alt="Пример работы мастера салона: короткая стрижка тёплого оттенка" width="1440" height="1920" loading="lazy" decoding="async">
-        </figure>
-        <figure class="work-card">
+        </button>
+        <button class="work-card" type="button" data-lightbox-open="works" aria-haspopup="dialog" aria-controls="works-lightbox" aria-label="Открыть пример работы 5 из 5">
           <img src="assets/works/work-2.webp" alt="Пример работы мастера салона: длинные светлые волосы" width="651" height="868" loading="lazy" decoding="async">
-        </figure>
+        </button>
       </div>
     </section>
 
@@ -1922,18 +1939,18 @@
           </div>
         </div>
         <div class="interior-gallery__track" id="interior-gallery-track" data-gallery-track tabindex="0" aria-label="Фотографии интерьера салона">
-          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"></button>
         </div>
       </div>
     </section>
@@ -2006,7 +2023,24 @@
     </div>
   </footer>
 
-  <dialog class="lightbox" id="interior-lightbox" aria-labelledby="interior-lightbox-title">
+  <dialog class="lightbox lightbox--works" id="works-lightbox" data-lightbox="works" aria-labelledby="works-lightbox-title">
+    <div class="lightbox__shell">
+      <header class="lightbox__header lightbox__header--no-count">
+        <h2 class="lightbox__title" id="works-lightbox-title">Работы мастеров</h2>
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Закрыть полноэкранный просмотр">×</button>
+      </header>
+      <div class="lightbox__stage" data-lightbox-stage>
+        <button class="lightbox__control lightbox__control--prev" type="button" data-lightbox-prev aria-label="Предыдущая работа">←</button>
+        <figure class="lightbox__figure">
+          <p class="lightbox__loading" data-lightbox-loading role="status">Загрузка фото…</p>
+          <img class="lightbox__image" data-lightbox-image src="assets/works/work-1.webp" alt="Пример работы мастера салона: светлые волосы до плеч">
+        </figure>
+        <button class="lightbox__control lightbox__control--next" type="button" data-lightbox-next aria-label="Следующая работа">→</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="lightbox" id="interior-lightbox" data-lightbox="interior" aria-labelledby="interior-lightbox-title">
     <div class="lightbox__shell">
       <header class="lightbox__header">
         <h2 class="lightbox__title" id="interior-lightbox-title">Интерьер салона</h2>
@@ -2064,25 +2098,40 @@
       const current = gallery.querySelector('[data-gallery-current]');
       const total = gallery.querySelector('[data-gallery-total]');
       const items = track ? Array.from(track.children) : [];
+      const usesWindowNavigation = gallery.hasAttribute('data-gallery-window');
       let activeIndex = 0;
       let scrollFrame = 0;
       let programmaticUntil = 0;
 
-      if (!track || !controls || !previous || !next || !current || !total || items.length === 0) return;
+      if (!track || !controls || !previous || !next || items.length === 0) return;
 
-      total.textContent = String(items.length);
+      if (total) total.textContent = String(items.length);
 
       const itemPosition = (item) => (
         item.getBoundingClientRect().left - track.getBoundingClientRect().left + track.scrollLeft
       );
 
-      const nearestIndex = () => {
-        const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
-        if (track.scrollLeft <= 2) return 0;
-        if (track.scrollLeft >= maxScroll - 2) return items.length - 1;
+      const itemOffset = (item) => itemPosition(item) - itemPosition(items[0]);
+      const maxScroll = () => Math.max(0, track.scrollWidth - track.clientWidth);
+      const targetForIndex = (index) => Math.min(itemOffset(items[index]), maxScroll());
 
-        return items.reduce((closest, item, index) => (
-          Math.abs(itemPosition(item) - track.scrollLeft) < Math.abs(itemPosition(items[closest]) - track.scrollLeft)
+      const windowLimit = () => items.reduce((closest, item, index) => (
+        Math.abs(targetForIndex(index) - maxScroll()) < Math.abs(targetForIndex(closest) - maxScroll())
+          ? index
+          : closest
+      ), 0);
+
+      const navigationLimit = () => usesWindowNavigation ? windowLimit() : items.length - 1;
+
+      const nearestIndex = () => {
+        if (track.scrollLeft <= 2) return 0;
+        if (!usesWindowNavigation && track.scrollLeft >= maxScroll() - 2) return items.length - 1;
+
+        const limit = navigationLimit();
+        const candidates = items.slice(0, limit + 1);
+
+        return candidates.reduce((closest, item, index) => (
+          Math.abs(targetForIndex(index) - track.scrollLeft) < Math.abs(targetForIndex(closest) - track.scrollLeft)
             ? index
             : closest
         ), 0);
@@ -2091,17 +2140,17 @@
       const renderState = () => {
         const hasOverflow = track.scrollWidth > track.clientWidth + 2;
         controls.hidden = !hasOverflow;
-        current.textContent = String(activeIndex + 1);
+        if (current) current.textContent = String(activeIndex + 1);
         previous.disabled = !hasOverflow || activeIndex === 0;
-        next.disabled = !hasOverflow || activeIndex === items.length - 1;
+        next.disabled = !hasOverflow || activeIndex >= navigationLimit();
       };
 
       const goTo = (index) => {
-        activeIndex = Math.max(0, Math.min(index, items.length - 1));
+        activeIndex = Math.max(0, Math.min(index, navigationLimit()));
         programmaticUntil = performance.now() + 500;
         renderState();
         track.scrollTo({
-          left: itemPosition(items[activeIndex]),
+          left: targetForIndex(activeIndex),
           behavior: prefersReducedMotion.matches ? 'auto' : 'smooth'
         });
         window.setTimeout(() => {
@@ -2142,128 +2191,132 @@
     });
 
 
-    const lightbox = document.querySelector('#interior-lightbox');
-    const lightboxTriggers = Array.from(document.querySelectorAll('[data-lightbox-open]'));
-    const lightboxImage = lightbox.querySelector('[data-lightbox-image]');
-    const lightboxCaption = lightbox.querySelector('[data-lightbox-caption]');
-    const lightboxLoading = lightbox.querySelector('[data-lightbox-loading]');
-    const lightboxCurrent = lightbox.querySelector('[data-lightbox-current]');
-    const lightboxTotal = lightbox.querySelector('[data-lightbox-total]');
-    const lightboxPrevious = lightbox.querySelector('[data-lightbox-prev]');
-    const lightboxNext = lightbox.querySelector('[data-lightbox-next]');
-    const lightboxStage = lightbox.querySelector('[data-lightbox-stage]');
-    const lightboxFigure = lightbox.querySelector('.lightbox__figure');
-    const lightboxItems = lightboxTriggers.map((trigger) => {
-      const image = trigger.querySelector('img');
-      return {
-        src: image.getAttribute('src'),
-        alt: image.getAttribute('alt')
+    document.querySelectorAll('dialog.lightbox[data-lightbox]').forEach((lightbox) => {
+      const galleryName = lightbox.dataset.lightbox;
+      const lightboxTriggers = Array.from(document.querySelectorAll(`[data-lightbox-open="${galleryName}"]`));
+      const lightboxImage = lightbox.querySelector('[data-lightbox-image]');
+      const lightboxCaption = lightbox.querySelector('[data-lightbox-caption]');
+      const lightboxLoading = lightbox.querySelector('[data-lightbox-loading]');
+      const lightboxCurrent = lightbox.querySelector('[data-lightbox-current]');
+      const lightboxTotal = lightbox.querySelector('[data-lightbox-total]');
+      const lightboxPrevious = lightbox.querySelector('[data-lightbox-prev]');
+      const lightboxNext = lightbox.querySelector('[data-lightbox-next]');
+      const lightboxClose = lightbox.querySelector('[data-lightbox-close]');
+      const lightboxStage = lightbox.querySelector('[data-lightbox-stage]');
+      const lightboxFigure = lightbox.querySelector('.lightbox__figure');
+      const lightboxItems = lightboxTriggers.map((trigger) => {
+        const image = trigger.querySelector('img');
+        return {
+          src: image.getAttribute('src'),
+          alt: image.getAttribute('alt')
+        };
+      });
+      let lightboxIndex = 0;
+      let lightboxReturnFocus = null;
+      let lightboxTouchStartX = 0;
+      let lightboxTouchStartY = 0;
+
+      if (lightboxItems.length === 0) return;
+      if (lightboxTotal) lightboxTotal.textContent = String(lightboxItems.length);
+
+      const finishLightboxLoading = () => {
+        lightboxLoading.hidden = true;
+        lightboxImage.classList.add('is-loaded');
       };
-    });
-    let lightboxIndex = 0;
-    let lightboxReturnFocus = null;
-    let lightboxTouchStartX = 0;
-    let lightboxTouchStartY = 0;
 
-    lightboxTotal.textContent = String(lightboxItems.length);
+      const showLightboxImage = (index) => {
+        lightboxIndex = Math.max(0, Math.min(index, lightboxItems.length - 1));
+        const item = lightboxItems[lightboxIndex];
 
-    const finishLightboxLoading = () => {
-      lightboxLoading.hidden = true;
-      lightboxImage.classList.add('is-loaded');
-    };
-
-    const showLightboxImage = (index) => {
-      lightboxIndex = Math.max(0, Math.min(index, lightboxItems.length - 1));
-      const item = lightboxItems[lightboxIndex];
-
-      lightboxImage.classList.remove('is-loaded');
-      lightboxLoading.hidden = false;
-      lightboxLoading.textContent = 'Загрузка фото…';
-      lightboxImage.alt = item.alt;
-      lightboxCaption.textContent = item.alt;
-      lightboxCurrent.textContent = String(lightboxIndex + 1);
-      lightboxPrevious.disabled = lightboxIndex === 0;
-      lightboxNext.disabled = lightboxIndex === lightboxItems.length - 1;
-
-      lightboxImage.onload = finishLightboxLoading;
-      lightboxImage.onerror = () => {
+        lightboxImage.classList.remove('is-loaded');
         lightboxLoading.hidden = false;
-        lightboxLoading.textContent = 'Не удалось загрузить фото';
+        lightboxLoading.textContent = 'Загрузка фото…';
+        lightboxImage.alt = item.alt;
+        if (lightboxCaption) lightboxCaption.textContent = item.alt;
+        if (lightboxCurrent) lightboxCurrent.textContent = String(lightboxIndex + 1);
+        lightboxPrevious.disabled = lightboxIndex === 0;
+        lightboxNext.disabled = lightboxIndex === lightboxItems.length - 1;
+
+        lightboxImage.onload = finishLightboxLoading;
+        lightboxImage.onerror = () => {
+          lightboxLoading.hidden = false;
+          lightboxLoading.textContent = 'Не удалось загрузить фото';
+        };
+        lightboxImage.src = item.src;
+
+        if (lightboxImage.complete && lightboxImage.naturalWidth > 0) {
+          window.requestAnimationFrame(finishLightboxLoading);
+        }
+
+        [lightboxIndex - 1, lightboxIndex + 1].forEach((nearbyIndex) => {
+          if (lightboxItems[nearbyIndex]) {
+            const preload = new Image();
+            preload.src = lightboxItems[nearbyIndex].src;
+          }
+        });
       };
-      lightboxImage.src = item.src;
 
-      if (lightboxImage.complete && lightboxImage.naturalWidth > 0) {
-        window.requestAnimationFrame(finishLightboxLoading);
-      }
+      lightboxTriggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => {
+          lightboxReturnFocus = trigger;
+          showLightboxImage(index);
+          lightbox.showModal();
+          document.body.style.overflow = 'hidden';
+          window.setTimeout(() => lightboxClose.focus(), 0);
+        });
+      });
 
-      [lightboxIndex - 1, lightboxIndex + 1].forEach((nearbyIndex) => {
-        if (lightboxItems[nearbyIndex]) {
-          const preload = new Image();
-          preload.src = lightboxItems[nearbyIndex].src;
+      const closeLightbox = () => {
+        document.body.style.overflow = '';
+        if (lightbox.open) lightbox.close();
+        window.setTimeout(() => {
+          if (lightboxReturnFocus) lightboxReturnFocus.focus();
+        }, 0);
+      };
+
+      lightboxPrevious.addEventListener('click', () => showLightboxImage(lightboxIndex - 1));
+      lightboxNext.addEventListener('click', () => showLightboxImage(lightboxIndex + 1));
+      lightboxClose.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeLightbox();
+      });
+
+      lightbox.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          showLightboxImage(lightboxIndex - 1);
+        }
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          showLightboxImage(lightboxIndex + 1);
         }
       });
-    };
 
-    lightboxTriggers.forEach((trigger, index) => {
-      trigger.addEventListener('click', () => {
-        lightboxReturnFocus = trigger;
-        showLightboxImage(index);
-        lightbox.showModal();
-        document.body.style.overflow = 'hidden';
-        window.setTimeout(() => lightbox.querySelector('[data-lightbox-close]').focus(), 0);
+      lightboxStage.addEventListener('click', (event) => {
+        if (event.target === lightboxStage || event.target === lightboxFigure) closeLightbox();
       });
-    });
 
-    const closeLightbox = () => {
-      document.body.style.overflow = '';
-      if (lightbox.open) lightbox.close();
-      window.setTimeout(() => {
+      lightboxFigure.addEventListener('touchstart', (event) => {
+        const touch = event.changedTouches[0];
+        lightboxTouchStartX = touch.clientX;
+        lightboxTouchStartY = touch.clientY;
+      }, { passive: true });
+
+      lightboxFigure.addEventListener('touchend', (event) => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - lightboxTouchStartX;
+        const deltaY = touch.clientY - lightboxTouchStartY;
+
+        if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+        showLightboxImage(lightboxIndex + (deltaX < 0 ? 1 : -1));
+      }, { passive: true });
+
+      lightbox.addEventListener('close', () => {
+        document.body.style.overflow = '';
         if (lightboxReturnFocus) lightboxReturnFocus.focus();
-      }, 0);
-    };
-
-    lightboxPrevious.addEventListener('click', () => showLightboxImage(lightboxIndex - 1));
-    lightboxNext.addEventListener('click', () => showLightboxImage(lightboxIndex + 1));
-    lightbox.querySelector('[data-lightbox-close]').addEventListener('click', closeLightbox);
-
-    lightbox.addEventListener('cancel', (event) => {
-      event.preventDefault();
-      closeLightbox();
-    });
-
-    lightbox.addEventListener('keydown', (event) => {
-      if (event.key === 'ArrowLeft') {
-        event.preventDefault();
-        showLightboxImage(lightboxIndex - 1);
-      }
-      if (event.key === 'ArrowRight') {
-        event.preventDefault();
-        showLightboxImage(lightboxIndex + 1);
-      }
-    });
-
-    lightboxStage.addEventListener('click', (event) => {
-      if (event.target === lightboxStage || event.target === lightboxFigure) closeLightbox();
-    });
-
-    lightboxFigure.addEventListener('touchstart', (event) => {
-      const touch = event.changedTouches[0];
-      lightboxTouchStartX = touch.clientX;
-      lightboxTouchStartY = touch.clientY;
-    }, { passive: true });
-
-    lightboxFigure.addEventListener('touchend', (event) => {
-      const touch = event.changedTouches[0];
-      const deltaX = touch.clientX - lightboxTouchStartX;
-      const deltaY = touch.clientY - lightboxTouchStartY;
-
-      if (Math.abs(deltaX) < 50 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
-      showLightboxImage(lightboxIndex + (deltaX < 0 ? 1 : -1));
-    }, { passive: true });
-
-    lightbox.addEventListener('close', () => {
-      document.body.style.overflow = '';
-      if (lightboxReturnFocus) lightboxReturnFocus.focus();
+      });
     });
 
     document.querySelectorAll('[data-open-form]').forEach((button) => {
