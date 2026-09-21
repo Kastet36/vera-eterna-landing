@@ -29,5 +29,6 @@
 - Hero proof: four agreed benefits sit below the actions; desktop uses a quiet 2-by-2 editorial list, while mobile uses compact key facts with short sage rails and no table-like dividers
 - Services: dark graphite section intro continues the hero so the single faint VERA background word can finish below the hero boundary without being cropped; ETERNA is reserved for a future dark section; then a warm cream catalogue begins with six compact alternating text-and-square-illustration rows; mobile stacks copy before image consistently; price is a single green orientation value, never a price table
 - Request CTA: a full-width graphite pause after the light services catalogue; the complete faint ETERNA word stays inside the section, while one coral primary button and one quiet outlined secondary button remain visually distinct; forms are intentionally deferred
+- Masters: a warm cream editorial section follows the dark request CTA; three real portraits form one compact desktop row, while mobile uses a horizontal snap carousel; names are factual, specialties and experience are provisional examples
 - Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
 - Locked: 2026-09-20
