@@ -34,7 +34,7 @@
 - Service illustration provenance: five supplied illustrations plus a matching generated hair-care illustration stored in assets/services
 - Lower-section system: all added sections inherit the existing 1320px content width, gutters, section-title scale, body scale, coral title rail, and button geometry already used by Services, Masters, and the first CTA
 - Surface rule: graphite and cream are the only full-section backgrounds; sage and forest are accents, labels, and control states, never full new-section surfaces
-- Works: three supplied portrait examples form one even graphite gallery; every image remains fully visible within a viewport-safe height, and mobile uses the shared horizontal gallery pattern
+- Works: five supplied portrait examples alternate long and short hairstyles in one single-row graphite gallery; three are visible on wide screens, overflow uses the shared explicit controls, and every image remains fully visible within a viewport-safe height
 - Gallery controls: Works on overflow and Interior use the same explicit previous/next buttons, visible counter, native touch scrolling, and keyboard arrows; each Interior image opens a graphite full-screen lightbox without persistent overlay labels, with the uncropped image, arrows, counter, Escape/outside-click close, and mobile swipe
 - Reviews: a compact cream placeholder explicitly reserves space for a future Yandex Maps widget and contains no fabricated review content or competing display headline
 - About: on desktop the supplied logo sits left and the heading with story sits right in one row; mobile stacks them; one compact horizontal interior gallery below preserves all twelve mixed-aspect-ratio photos
