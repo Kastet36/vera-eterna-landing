@@ -845,10 +845,6 @@
     }
     .reviews__inner {
       max-width: 1320px;
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(360px, 1.2fr);
-      align-items: stretch;
-      gap: clamp(48px, 7vw, 112px);
       margin: 0 auto;
     }
     .reviews__copy {
@@ -860,6 +856,7 @@
     }
     .reviews__widget {
       min-height: 200px;
+      margin-top: 48px;
       padding: 24px 0;
       border-top: 1px solid var(--line-dark);
       border-bottom: 1px solid var(--line-dark);
@@ -1526,8 +1523,7 @@
       .video-gallery__controls { margin-bottom: 12px; }
       .work-card:nth-child(2) { transform: none; }
       .reviews { padding: 72px 24px; }
-      .reviews__inner { grid-template-columns: 1fr; gap: 40px; }
-      .reviews__widget { min-height: 220px; }
+      .reviews__widget { min-height: 220px; margin-top: 40px; }
       .about { padding: 80px 0 72px; }
       .about__header {
         width: auto;
@@ -1617,9 +1613,8 @@
       .video-gallery__track { gap: 12px; }
       .video-card { flex-basis: min(82vw, 300px); }
       .reviews { padding: 64px 20px; }
-      .reviews__inner { gap: 32px; }
       .reviews__copy { margin-top: 18px; font-size: 16px; }
-      .reviews__widget { min-height: 210px; padding: 20px 0; }
+      .reviews__widget { min-height: 210px; margin-top: 32px; padding: 20px 0; }
       .about { padding: 64px 0 64px; }
       .about__header-text { margin-top: 18px; font-size: 16px; line-height: 1.58; }
       .about__brand,
