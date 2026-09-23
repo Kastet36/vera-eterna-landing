@@ -858,30 +858,64 @@
       font-size: 17px;
       line-height: 1.55;
     }
-    .reviews__placeholder {
+    .reviews__widget {
       min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 32px 0;
+      padding: 24px 0;
       border-top: 1px solid var(--line-dark);
       border-bottom: 1px solid var(--line-dark);
     }
-    .reviews__label {
-      margin: 0 0 12px;
+    review-lab {
+      display: block;
+      width: 100%;
+    }
+    review-lab .widget {
+      color: var(--ink);
+      font-family: Onest, Arial, sans-serif;
+    }
+    review-lab .widget__header {
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    review-lab .widget__leave-link {
       color: var(--forest);
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .12em;
+      letter-spacing: .08em;
       text-transform: uppercase;
+      text-underline-offset: 4px;
     }
-    .reviews__status {
-      max-width: 540px;
-      margin: 0;
+    review-lab .widget__tab {
       color: var(--text-muted);
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 1.55;
+      font: 600 16px/1.25 "Cormorant Garamond", Georgia, serif;
+    }
+    review-lab .widget__tab_active { color: var(--ink); }
+    review-lab .widget__tab--rating,
+    review-lab .review__rating,
+    review-lab .widget__pag.widget__pag_prev,
+    review-lab .widget__pag.widget__pag_next { color: var(--forest); }
+    review-lab .review {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    review-lab .review__header {
+      align-items: center;
+      gap: 12px;
+    }
+    review-lab .review__photo { border-radius: 50%; }
+    review-lab .review__title {
+      color: var(--ink);
+      font: 600 22px/1.15 "Cormorant Garamond", Georgia, serif;
+    }
+    review-lab .review__text {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    review-lab .review__more {
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 700;
+      text-underline-offset: 3px;
     }
 
     .about {
@@ -1493,7 +1527,7 @@
       .work-card:nth-child(2) { transform: none; }
       .reviews { padding: 72px 24px; }
       .reviews__inner { grid-template-columns: 1fr; gap: 40px; }
-      .reviews__placeholder { min-height: 220px; }
+      .reviews__widget { min-height: 220px; }
       .about { padding: 80px 0 72px; }
       .about__header {
         width: auto;
@@ -1585,8 +1619,7 @@
       .reviews { padding: 64px 20px; }
       .reviews__inner { gap: 32px; }
       .reviews__copy { margin-top: 18px; font-size: 16px; }
-      .reviews__placeholder { min-height: 210px; padding: 24px; }
-      .reviews__status { font-size: 34px; }
+      .reviews__widget { min-height: 210px; padding: 20px 0; }
       .about { padding: 64px 0 64px; }
       .about__header-text { margin-top: 18px; font-size: 16px; line-height: 1.58; }
       .about__brand,
@@ -1695,7 +1728,6 @@
         font-size: 12px;
       }
 
-      .reviews__status { font-size: 16px; }
       .work-card {
         height: min(56svh, 426px);
         max-height: none;
@@ -1997,11 +2029,12 @@
           <div class="section-title-wrap">
             <h2 class="section-title" id="reviews-title">Отзывы</h2>
           </div>
-          <p class="reviews__copy">Здесь будут отзывы гостей салона с Яндекс Карт.</p>
+          <p class="reviews__copy">Мнения гостей, которые уже доверили нам свой образ.</p>
         </div>
-        <div class="reviews__placeholder" aria-label="Место для будущего виджета отзывов">
-          <p class="reviews__label">Скоро</p>
-          <p class="reviews__status">Готовим место для виджета с реальными отзывами</p>
+        <div class="reviews__widget" aria-label="Отзывы гостей">
+          <review-lab data-widgetid="6ab38cb05f82ba8701c451e1">
+            <a href="https://reviewlab.ru/?utm_source=reviewlab-widget" target="_blank" rel="noopener noreferrer">Сделано на ReviewLab</a>
+          </review-lab>
         </div>
       </div>
     </section>
@@ -2172,6 +2205,7 @@
     </div>
   </dialog>
 
+  <script src="https://app.reviewlab.ru/widget/index-es2015.js" defer></script>
   <script>
     const dialog = document.querySelector('#visit-form');
     const form = document.querySelector('#lead-form');
