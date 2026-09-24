@@ -1385,8 +1385,13 @@
       border-radius: 10px;
     }
     .dialog-content .button { width: 100%; margin-top: 24px; border-radius: 10px; }
-    .form-status { display: none; margin: 16px 0 0; color: var(--forest); font-size: 14px; font-weight: 600; line-height: 1.5; }
-    .form-status.is-visible { display: block; }
+    .form-consent {
+      margin: 14px 0 0;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
 
     @media (min-width: 821px) and (max-height: 820px) {
       .editorial-copy { padding-top: 68px; padding-bottom: 32px; }
@@ -1880,8 +1885,8 @@
         <h2 id="request-cta-title">Подберём услугу<br>под ваш запрос</h2>
         <p class="request-cta__text">Оставьте имя и телефон. Администратор перезвонит и поможет выбрать услугу и мастера, а время назначит удобное для вас.</p>
         <div class="request-cta__actions">
-          <button class="button button--primary" type="button">Запланировать визит</button>
-          <button class="button button--secondary" type="button">Уточнить стоимость</button>
+          <button class="button button--primary" type="button" data-open-form>Запланировать визит</button>
+          <button class="button button--secondary" type="button" data-open-price-form>Уточнить стоимость</button>
         </div>
       </div>
     </section>
@@ -2157,7 +2162,7 @@
       <h2 id="visit-form-title">Запланировать<br>визит</h2>
       <p>Оставьте контакты, и администратор поможет выбрать время.</p>
       <form id="lead-form">
-        <label class="form-row">Имя<input required name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+        <label class="form-row">Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
         <label class="form-row">Телефон<input required name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__"></label>
         <label class="form-row">Услуга, если уже выбрали
           <select name="service">
@@ -2168,8 +2173,31 @@
             <option>Брови или макияж</option>
           </select>
         </label>
-        <button class="button button--primary" type="submit">Отправить заявку</button>
-        <p class="form-status" role="status">Спасибо! Это демонстрационная форма: на рабочем лендинге заявка уйдёт администратору.</p>
+        <button class="button button--primary" type="submit">Запланировать визит</button>
+        <p class="form-consent">Нажимая на кнопку «Запланировать визит», вы соглашаетесь с Политикой обработки персональных данных.</p>
+      </form>
+    </div>
+  </dialog>
+
+  <dialog id="price-form" aria-labelledby="price-form-title">
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" data-close-price-form aria-label="Закрыть форму">×</button>
+      <h2 id="price-form-title">Уточнить<br>стоимость</h2>
+      <p>Оставьте контакты, и администратор подскажет точную стоимость услуги.</p>
+      <form id="price-lead-form">
+        <label class="form-row">Имя<input name="name" autocomplete="name" placeholder="Как к вам обращаться"></label>
+        <label class="form-row">Телефон<input required name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__"></label>
+        <label class="form-row">Услуга, стоимость которой хотите уточнить
+          <select name="service">
+            <option value="">Поможет администратор</option>
+            <option>Стрижка или укладка</option>
+            <option>Окрашивание</option>
+            <option>Уход за волосами</option>
+            <option>Брови или макияж</option>
+          </select>
+        </label>
+        <button class="button button--primary" type="submit">Уточнить стоимость</button>
+        <p class="form-consent">Нажимая на кнопку «Уточнить стоимость», вы соглашаетесь с Политикой обработки персональных данных.</p>
       </form>
     </div>
   </dialog>
@@ -2179,6 +2207,8 @@
     const dialog = document.querySelector('#visit-form');
     const form = document.querySelector('#lead-form');
     const firstField = form.querySelector('input');
+    const priceDialog = document.querySelector("#price-form");
+    const priceFirstField = priceDialog.querySelector("input");
 
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -2424,9 +2454,16 @@
       if (event.target === dialog) dialog.close();
     });
 
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      form.querySelector('.form-status').classList.add('is-visible');
+    document.querySelectorAll("[data-open-price-form]").forEach((button) => {
+      button.addEventListener("click", () => {
+        priceDialog.showModal();
+        window.setTimeout(() => priceFirstField.focus(), 0);
+      });
+    });
+
+    document.querySelector("[data-close-price-form]").addEventListener("click", () => priceDialog.close());
+    priceDialog.addEventListener("click", (event) => {
+      if (event.target === priceDialog) priceDialog.close();
     });
   </script>
 </body>
