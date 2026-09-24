@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Салон красоты Вера Этерна в Новоселье: стрижки, окрашивание, уход за волосами, укладки, брови и макияж.">
   <title>Вера Этерна — салон красоты в Новоселье</title>
+  <!-- Yandex.Metrika counter -->
+  <script>
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments); };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j += 1) { if (document.scripts[j].src === r) { return; } }
+      k = e.createElement(t); a = e.getElementsByTagName(t)[0]; k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
+    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(112812642, "init", {
+      defer: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
   <style>
     @font-face {
       font-family: "Onest";
@@ -157,6 +175,15 @@
       color: rgba(245, 242, 233, .86);
       font-size: 14px;
       font-weight: 650;
+    }
+    .site-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .site-nav a:hover { color: var(--sage); }
+    .site-nav a:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
     }
     .site-address {
       justify-self: end;
@@ -1877,6 +1904,7 @@
   </style>
 </head>
 <body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/112812642" style="position:absolute; left:-9999px;" alt=""></div></noscript>
   <a class="skip-link" href="#concept-1">К первому экрану</a>
 
   <header class="site-header">
@@ -1890,9 +1918,10 @@
         </span>
       </div>
       <nav class="site-nav" aria-label="Основная навигация">
-        <span>Услуги</span>
-        <span>Мастера</span>
-        <span>Контакты</span>
+        <a href="#services">Услуги</a>
+        <a href="#masters">Мастера</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
       </nav>
       <address class="site-address">
         <span>Новоселье</span>
@@ -1909,7 +1938,7 @@
           <p class="hero-text">Женские и мужские стрижки. Окрашивание, уход за волосами, укладки. Брови и макияж. Разработаем образ под ваш запрос.</p>
           <div class="actions">
             <button class="button button--primary" type="button" data-open-form>Запланировать визит</button>
-            <a class="button button--secondary" href="#services">Выбрать услугу ↓</a>
+            <a class="button button--secondary" href="#services">Выбрать услугу</a>
           </div>
           <ul class="hero-benefits" aria-label="Преимущества салона">
             <li>
