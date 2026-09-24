@@ -1263,51 +1263,35 @@
       position: relative;
       min-height: 380px;
       overflow: hidden;
-      background:
-        linear-gradient(rgba(65, 67, 79, .07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(65, 67, 79, .07) 1px, transparent 1px),
-        var(--cream);
-      background-size: 64px 64px;
+      background: var(--cream);
     }
-    .contact-map__body::before,
-    .contact-map__body::after {
+    .contact-map__frame {
       position: absolute;
-      content: "";
-      background: rgba(65, 67, 79, .12);
-      transform: rotate(-24deg);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
-    .contact-map__body::before { top: 42%; left: -8%; width: 116%; height: 18px; }
-    .contact-map__body::after { top: -20%; left: 54%; width: 12px; height: 150%; }
-    .contact-map__fallback {
+    .contact-map__card {
       position: absolute;
       z-index: 1;
-      inset: 0;
-      display: grid;
-      place-content: center;
-      padding: 32px;
-      text-align: center;
+      right: 20px;
+      bottom: 20px;
+      max-width: calc(100% - 40px);
+      padding: 16px 18px;
+      color: var(--ink);
+      background: rgba(245, 242, 233, .94);
+      border: 1px solid rgba(65, 67, 79, .18);
+      box-shadow: 0 10px 28px rgba(32, 33, 42, .18);
     }
-    .contact-map__pin {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 18px;
-      color: var(--cream);
-      background: var(--coral);
-      border-radius: 50% 50% 50% 4px;
-      font-size: 13px;
-      font-weight: 800;
-      transform: rotate(-45deg);
-    }
-    .contact-map__pin span { transform: rotate(45deg); }
-    .contact-map__fallback strong {
+    .contact-map__card strong {
+      display: block;
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 34px;
+      font-size: 27px;
       font-weight: 600;
       line-height: 1;
     }
-    .contact-map__fallback small { margin-top: 8px; color: var(--text-muted); font-size: 14px; }
+    .contact-map__card span { display: block; margin-top: 6px; color: var(--text-muted); font-size: 13px; }
     .contact-map__link {
       min-height: 60px;
       display: flex;
@@ -2099,10 +2083,10 @@
 
         <div class="contact-map">
           <div class="contact-map__body">
-            <div class="contact-map__fallback" aria-hidden="true">
-              <span class="contact-map__pin"><span>01</span></span>
-              <strong>Новоселье</strong>
-              <small>Невская улица, 1</small>
+            <iframe class="contact-map__frame" src="https://www.openstreetmap.org/export/embed.html?bbox=30.067%2C59.802%2C30.091%2C59.815&amp;layer=mapnik&amp;marker=59.808482%2C30.079206" title="Вера Этерна на карте" loading="lazy"></iframe>
+            <div class="contact-map__card">
+              <strong>Вера Этерна</strong>
+              <span>Невская ул., 1, Новоселье</span>
             </div>
           </div>
           <a class="contact-map__link" href="https://yandex.ru/maps/org/vera_eterna/77505372132/">Открыть на Яндекс Картах <span aria-hidden="true">↗</span></a>
