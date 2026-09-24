@@ -1852,6 +1852,24 @@
       .interior-frame { height: min(52svh, 300px); }
     }
 
+    .interior-frame {
+      height: auto;
+      flex-basis: clamp(230px, 20vw, 300px);
+      aspect-ratio: 3 / 4;
+    }
+
+    @media (max-width: 900px) {
+      .interior-frame { height: auto; flex-basis: min(62vw, 300px); }
+    }
+
+    @media (max-width: 520px) {
+      .interior-frame { height: auto; flex-basis: min(72vw, 280px); }
+    }
+
+    @media (max-width: 480px) {
+      .interior-frame { height: auto; flex-basis: min(76vw, 280px); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -2159,25 +2177,21 @@
       <div class="interior-gallery" data-gallery>
         <div class="interior-gallery__head">
           <h3 class="interior-gallery__title">Интерьер</h3>
-          <div class="gallery-controls" data-gallery-controls>
+          <div class="gallery-controls gallery-controls--arrows" data-gallery-controls>
             <button class="gallery-button" type="button" data-gallery-prev aria-label="Предыдущее фото интерьера" aria-controls="interior-gallery-track">←</button>
-            <span class="gallery-count" aria-live="polite"><span data-gallery-current>1</span> / <span data-gallery-total>12</span></span>
             <button class="gallery-button" type="button" data-gallery-next aria-label="Следующее фото интерьера" aria-controls="interior-gallery-track">→</button>
           </div>
         </div>
         <div class="interior-gallery__track" id="interior-gallery-track" data-gallery-track tabindex="0" aria-label="Фотографии интерьера салона">
-          <button class="interior-frame" type="button" style="aspect-ratio: 2385 / 1590" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 1 из 12"><img src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна" width="2385" height="1590" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2372 / 1581" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 2 из 12"><img src="assets/interior/2.jpg" alt="Рабочая зона салона" width="2372" height="1581" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2304 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 3 из 12"><img src="assets/interior/3.jpg" alt="Интерьер имидж-студии" width="2304" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1266 / 1898" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 4 из 12"><img src="assets/interior/4.jpg" alt="Деталь интерьера салона" width="1266" height="1898" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 5 из 12"><img src="assets/interior/5.jpg" alt="Зал салона Вера Этерна" width="2592" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 6 из 12"><img src="assets/interior/6.jpg" alt="Интерьер салона, вертикальный кадр" width="1728" height="2592" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1728 / 2592" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 7 из 12"><img src="assets/interior/7.jpg" alt="Оформление салона Вера Этерна" width="1728" height="2592" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 2592 / 1728" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 8 из 12"><img src="assets/interior/8.jpg" alt="Пространство имидж-студии" width="2592" height="1728" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1425 / 2138" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 9 из 12"><img src="assets/interior/9.jpg" alt="Деталь пространства салона" width="1425" height="2138" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1583 / 2367" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 10 из 12"><img src="assets/interior/10.jpg" alt="Светлый интерьер Вера Этерна" width="1583" height="2367" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 850 / 1133" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 11 из 12"><img src="assets/interior/11.jpg" alt="Зона салона Вера Этерна" width="850" height="1133" loading="lazy" decoding="async"></button>
-          <button class="interior-frame" type="button" style="aspect-ratio: 1280 / 960" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фото интерьера 12 из 12"><img src="assets/interior/12.jpg" alt="Интерьер салона в Новоселье" width="1280" height="960" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/1.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/2.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/3.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/4.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/5.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/6.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/7.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/8.jpg" alt="" loading="lazy" decoding="async"></button>
+          <button class="interior-frame" type="button" data-lightbox-open="interior" aria-haspopup="dialog" aria-controls="interior-lightbox" aria-label="Открыть фотографию интерьера"><img src="assets/interior/9.jpg" alt="" loading="lazy" decoding="async"></button>
         </div>
       </div>
     </section>
@@ -2268,9 +2282,8 @@
 
   <dialog class="lightbox" id="interior-lightbox" data-lightbox="interior" aria-labelledby="interior-lightbox-title">
     <div class="lightbox__shell">
-      <header class="lightbox__header">
+      <header class="lightbox__header lightbox__header--no-count">
         <h2 class="lightbox__title" id="interior-lightbox-title">Интерьер салона</h2>
-        <p class="lightbox__count" aria-live="polite"><span data-lightbox-current>1</span> / <span data-lightbox-total>12</span></p>
         <button class="lightbox__close" type="button" data-lightbox-close aria-label="Закрыть полноэкранный просмотр">×</button>
       </header>
       <div class="lightbox__stage" data-lightbox-stage>
@@ -2278,7 +2291,6 @@
         <figure class="lightbox__figure">
           <p class="lightbox__loading" data-lightbox-loading role="status">Загрузка фото…</p>
           <img class="lightbox__image" data-lightbox-image src="assets/interior/1.jpg" alt="Интерьер салона Вера Этерна">
-          <figcaption class="lightbox__caption" data-lightbox-caption>Интерьер салона Вера Этерна</figcaption>
         </figure>
         <button class="lightbox__control lightbox__control--next" type="button" data-lightbox-next aria-label="Следующее фото">→</button>
       </div>
