@@ -249,48 +249,6 @@
     .button--primary { color: var(--action-ink); background: var(--coral); }
     .button--primary:hover { background: var(--coral-hover); }
 
-    .work-showcase {
-      position: relative;
-      overflow: hidden;
-      padding: 104px clamp(28px, 6vw, 96px) 112px;
-      background: var(--cream);
-    }
-    .work-showcase__inner { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; }
-    .work-showcase__mark {
-      position: absolute;
-      z-index: 0;
-      top: -210px;
-      right: -140px;
-      width: min(48vw, 680px);
-      opacity: .055;
-      pointer-events: none;
-    }
-    .work-showcase .section-title-wrap { margin-bottom: 36px; }
-    .work-showcase__grid {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.28fr .86fr .86fr;
-      grid-template-rows: repeat(2, minmax(0, 1fr));
-      height: clamp(520px, 48vw, 720px);
-      gap: 20px;
-    }
-    .work-showcase__item {
-      min-width: 0;
-      margin: 0;
-      overflow: hidden;
-      background: var(--ink);
-    }
-    .work-showcase__item:nth-child(1) { grid-row: 1 / span 2; }
-    .work-showcase__item:nth-child(4) { grid-column: 2 / span 2; }
-    .work-showcase__item img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .8s var(--ease);
-    }
-    .work-showcase__item:hover img { transform: scale(1.018); }
-
     /* Concept 01 — Editorial studio */
     .concept--editorial { color: var(--cream); background: var(--ink); }
     .editorial-layout {
@@ -1466,17 +1424,6 @@
       }
       .site-address { grid-area: address; font-size: 11px; }
       .editorial-layout { grid-template-columns: 1fr; }
-      .work-showcase { padding: 80px 24px 88px; }
-      .work-showcase__mark { top: -92px; right: -116px; width: min(88vw, 540px); }
-      .work-showcase .section-title-wrap { margin-bottom: 28px; }
-      .work-showcase__grid {
-        grid-template-columns: 1.16fr .84fr;
-        grid-template-rows: repeat(3, minmax(0, 1fr));
-        height: clamp(520px, 152vw, 760px);
-        gap: 12px;
-      }
-      .work-showcase__item:nth-child(1) { grid-row: 1 / span 2; }
-      .work-showcase__item:nth-child(4) { grid-column: 1 / span 2; grid-row: 3; }
       .editorial-layout { padding-top: 24px; }
       .editorial-copy { padding: 48px 24px 40px; }
       .concept--editorial .hero-title { font-size: clamp(60px, 15vw, 88px); }
@@ -1848,21 +1795,6 @@
             <img src="assets/interior-portrait.jpg" alt="Светлый зал имидж-студии Вера Этерна" width="1583" height="2367">
           </div>
           <span class="editorial-sage" aria-hidden="true"></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="work-showcase" aria-labelledby="work-showcase-title">
-      <img class="work-showcase__mark" src="assets/works-showcase-logo.png" alt="" aria-hidden="true">
-      <div class="work-showcase__inner">
-        <div class="section-title-wrap">
-          <h2 class="section-title" id="work-showcase-title">Работы</h2>
-        </div>
-        <div class="work-showcase__grid">
-          <figure class="work-showcase__item"><img src="assets/works/1.webp" alt="Работа мастера салона Вера Этерна" fetchpriority="high" decoding="async"></figure>
-          <figure class="work-showcase__item"><img src="assets/works/4.webp" alt="Работа мастера салона Вера Этерна" loading="lazy" decoding="async"></figure>
-          <figure class="work-showcase__item"><img src="assets/works/8.webp" alt="Работа мастера салона Вера Этерна" loading="lazy" decoding="async"></figure>
-          <figure class="work-showcase__item"><img src="assets/works/9.webp" alt="Работа мастера салона Вера Этерна" loading="lazy" decoding="async"></figure>
         </div>
       </div>
     </section>
