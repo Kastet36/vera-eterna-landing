@@ -1393,6 +1393,75 @@
       text-align: center;
     }
 
+    .quick-actions {
+      position: fixed;
+      z-index: 20;
+      right: 24px;
+      bottom: 24px;
+    }
+    .quick-actions__trigger {
+      min-height: 52px;
+      padding: 0 22px;
+      color: var(--cream);
+      background: var(--ink);
+      border: 1px solid rgba(245, 242, 233, .28);
+      border-radius: 999px;
+      box-shadow: 0 14px 34px rgba(25, 27, 34, .22);
+      font: 750 14px/1 "Onest", Arial, sans-serif;
+      cursor: pointer;
+      transition: color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
+    }
+    .quick-actions__trigger:hover { color: var(--action-ink); background: var(--coral); transform: translateY(-2px); }
+    .quick-actions__trigger:focus-visible,
+    .quick-actions__option:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+    .quick-actions__menu {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 12px);
+      width: 244px;
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      background: var(--cream);
+      border: 1px solid var(--line-dark);
+      border-radius: 14px;
+      box-shadow: 0 18px 44px rgba(25, 27, 34, .24);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      visibility: hidden;
+      transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s var(--ease);
+    }
+    .quick-actions.is-open .quick-actions__menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    .quick-actions__option {
+      min-height: 48px;
+      padding: 0 16px;
+      color: var(--action-ink);
+      background: var(--coral);
+      border: 1px solid var(--coral);
+      border-radius: 9px;
+      font: 750 14px/1.2 "Onest", Arial, sans-serif;
+      cursor: pointer;
+    }
+    .quick-actions__option--secondary {
+      color: var(--ink);
+      background: transparent;
+      border-color: var(--ink);
+    }
+    body:has(dialog[open]) .quick-actions { opacity: 0; pointer-events: none; }
+
+    @media (max-width: 600px) {
+      .quick-actions { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
+      .quick-actions__trigger { min-height: 56px; padding: 0 22px; font-size: 15px; }
+      .quick-actions__menu { width: min(280px, calc(100vw - 32px)); padding: 10px; }
+      .quick-actions__option { min-height: 52px; font-size: 15px; }
+    }
+
     @media (min-width: 821px) and (max-height: 820px) {
       .editorial-copy { padding-top: 68px; padding-bottom: 32px; }
       .hero-text { margin-top: 20px; font-size: 16px; line-height: 1.48; }
@@ -2156,6 +2225,14 @@
     </div>
   </dialog>
 
+  <div class="quick-actions" data-quick-actions>
+    <div class="quick-actions__menu" id="quick-actions-menu" aria-label="Выберите действие">
+      <button class="quick-actions__option" type="button" data-open-form>Запланировать визит</button>
+      <button class="quick-actions__option quick-actions__option--secondary" type="button" data-open-price-form>Уточнить стоимость</button>
+    </div>
+    <button class="quick-actions__trigger" type="button" aria-expanded="false" aria-controls="quick-actions-menu" data-quick-actions-trigger>Записаться</button>
+  </div>
+
   <dialog id="visit-form" aria-labelledby="visit-form-title">
     <div class="dialog-content">
       <button class="dialog-close" type="button" data-close-form aria-label="Закрыть форму">×</button>
@@ -2209,6 +2286,30 @@
     const firstField = form.querySelector('input');
     const priceDialog = document.querySelector("#price-form");
     const priceFirstField = priceDialog.querySelector("input");
+    const quickActions = document.querySelector("[data-quick-actions]");
+    const quickActionsTrigger = document.querySelector("[data-quick-actions-trigger]");
+
+    const setQuickActions = (isOpen) => {
+      quickActions.classList.toggle("is-open", isOpen);
+      quickActionsTrigger.setAttribute("aria-expanded", String(isOpen));
+      quickActionsTrigger.textContent = isOpen ? "Закрыть" : "Записаться";
+    };
+
+    quickActionsTrigger.addEventListener("click", () => {
+      setQuickActions(!quickActions.classList.contains("is-open"));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!quickActions.contains(event.target)) setQuickActions(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setQuickActions(false);
+    });
+
+    quickActions.querySelectorAll("[data-open-form], [data-open-price-form]").forEach((button) => {
+      button.addEventListener("click", () => setQuickActions(false));
+    });
 
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
