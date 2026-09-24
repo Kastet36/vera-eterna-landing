@@ -1398,20 +1398,46 @@
       z-index: 20;
       right: 24px;
       bottom: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      visibility: hidden;
+      transition: opacity .35s var(--ease), transform .35s var(--ease), visibility .35s var(--ease);
+    }
+    .quick-actions.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      visibility: visible;
     }
     .quick-actions__trigger {
-      min-height: 52px;
-      padding: 0 22px;
-      color: var(--cream);
-      background: var(--ink);
-      border: 1px solid rgba(245, 242, 233, .28);
-      border-radius: 999px;
-      box-shadow: 0 14px 34px rgba(25, 27, 34, .22);
-      font: 750 14px/1 "Onest", Arial, sans-serif;
+      position: relative;
+      min-height: 56px;
+      padding: 0 24px;
+      color: var(--action-ink);
+      background: var(--coral);
+      border: 1px solid var(--coral);
+      border-radius: 2px;
+      box-shadow: 0 10px 24px rgba(25, 27, 34, .2);
+      font: 750 15px/1 "Onest", Arial, sans-serif;
       cursor: pointer;
-      transition: color .25s var(--ease), background .25s var(--ease), transform .25s var(--ease);
+      transition: color .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
     }
-    .quick-actions__trigger:hover { color: var(--action-ink); background: var(--coral); transform: translateY(-2px); }
+    .quick-actions__trigger::after {
+      position: absolute;
+      inset: -7px;
+      border: 1px solid rgba(240, 100, 85, .58);
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+    }
+    .quick-actions.is-visible .quick-actions__trigger::after { animation: quick-action-pulse 5.6s var(--ease) 3; }
+    .quick-actions__trigger:hover { background: var(--coral-hover); border-color: var(--coral-hover); transform: translateY(-2px); }
+    @keyframes quick-action-pulse {
+      0%, 68%, 100% { opacity: 0; transform: scale(.96); }
+      10% { opacity: .72; transform: scale(.96); }
+      36% { opacity: 0; transform: scale(1.16); }
+    }
     .quick-actions__trigger:focus-visible,
     .quick-actions__option:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
     .quick-actions__menu {
@@ -1454,6 +1480,12 @@
       border-color: var(--ink);
     }
     body:has(dialog[open]) .quick-actions { opacity: 0; pointer-events: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .quick-actions,
+      .quick-actions__trigger { transition: none; }
+      .quick-actions.is-visible .quick-actions__trigger::after { animation: none; }
+    }
 
     @media (max-width: 600px) {
       .quick-actions { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
@@ -2288,12 +2320,24 @@
     const priceFirstField = priceDialog.querySelector("input");
     const quickActions = document.querySelector("[data-quick-actions]");
     const quickActionsTrigger = document.querySelector("[data-quick-actions-trigger]");
+    const hero = document.querySelector("#concept-1");
 
     const setQuickActions = (isOpen) => {
       quickActions.classList.toggle("is-open", isOpen);
       quickActionsTrigger.setAttribute("aria-expanded", String(isOpen));
-      quickActionsTrigger.textContent = isOpen ? "Закрыть" : "Записаться";
     };
+
+    const setQuickActionsVisibility = (isVisible) => {
+      quickActions.classList.toggle("is-visible", isVisible);
+      quickActions.inert = !isVisible;
+      quickActions.setAttribute("aria-hidden", String(!isVisible));
+      if (!isVisible) setQuickActions(false);
+    };
+
+    setQuickActionsVisibility(false);
+    new IntersectionObserver(([entry]) => {
+      setQuickActionsVisibility(!entry.isIntersecting);
+    }, { threshold: 0 }).observe(hero);
 
     quickActionsTrigger.addEventListener("click", () => {
       setQuickActions(!quickActions.classList.contains("is-open"));
