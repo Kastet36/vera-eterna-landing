@@ -1414,18 +1414,9 @@
     }
     .quick-actions__trigger {
       position: relative;
-      min-height: 56px;
-      padding: 0 24px;
-      color: var(--action-ink);
       overflow: hidden;
       isolation: isolate;
-      background: var(--coral);
-      border: 1px solid var(--coral);
       border-radius: 2px;
-      box-shadow: 0 10px 24px rgba(25, 27, 34, .2);
-      font: 750 15px/1 "Onest", Arial, sans-serif;
-      cursor: pointer;
-      transition: color .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
     }
     .quick-actions__trigger::before {
       position: absolute;
@@ -1475,11 +1466,12 @@
       bottom: calc(100% + 12px);
       width: 244px;
       display: grid;
-      gap: 8px;
-      padding: 10px;
-      background: var(--cream);
-      border: 1px solid var(--line-dark);
-      border-radius: 14px;
+      gap: 12px;
+      padding: 12px;
+      color: var(--cream);
+      background: var(--ink);
+      border: 0;
+      border-radius: 2px;
       box-shadow: 0 18px 44px rgba(25, 27, 34, .24);
       opacity: 0;
       pointer-events: none;
@@ -1493,20 +1485,19 @@
       transform: translateY(0);
       visibility: visible;
     }
-    .quick-actions__option {
-      min-height: 48px;
-      padding: 0 16px;
-      color: var(--action-ink);
-      background: var(--coral);
-      border: 1px solid var(--coral);
-      border-radius: 9px;
-      font: 750 14px/1.2 "Onest", Arial, sans-serif;
-      cursor: pointer;
+    .quick-actions__menu .button {
+      width: 100%;
+      border-radius: 2px;
     }
-    .quick-actions__option--secondary {
-      color: var(--ink);
+    .quick-actions__menu .button--secondary {
+      color: var(--cream);
       background: transparent;
-      border-color: var(--ink);
+      border-color: var(--line-light);
+    }
+    .quick-actions__menu .button--secondary:hover {
+      color: var(--ink);
+      background: var(--sage);
+      border-color: var(--sage);
     }
     body:has(dialog[open]) .quick-actions { opacity: 0; pointer-events: none; }
 
@@ -2290,10 +2281,10 @@
 
   <div class="quick-actions" data-quick-actions>
     <div class="quick-actions__menu" id="quick-actions-menu" aria-label="Выберите действие">
-      <button class="quick-actions__option" type="button" data-open-form>Запланировать визит</button>
-      <button class="quick-actions__option quick-actions__option--secondary" type="button" data-open-price-form>Уточнить стоимость</button>
+      <button class="button button--primary quick-actions__option" type="button" data-open-form>Запланировать визит</button>
+      <button class="button button--secondary quick-actions__option" type="button" data-open-price-form>Уточнить стоимость</button>
     </div>
-    <button class="quick-actions__trigger" type="button" aria-expanded="false" aria-controls="quick-actions-menu" data-quick-actions-trigger>Записаться</button>
+    <button class="button button--primary quick-actions__trigger" type="button" aria-expanded="false" aria-controls="quick-actions-menu" data-quick-actions-trigger>Записаться</button>
   </div>
 
   <dialog id="visit-form" aria-labelledby="visit-form-title">
