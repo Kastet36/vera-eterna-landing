@@ -1417,6 +1417,8 @@
       min-height: 56px;
       padding: 0 24px;
       color: var(--action-ink);
+      overflow: hidden;
+      isolation: isolate;
       background: var(--coral);
       border: 1px solid var(--coral);
       border-radius: 2px;
@@ -1425,7 +1427,17 @@
       cursor: pointer;
       transition: color .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
     }
-    .quick-actions__trigger::after {
+    .quick-actions__trigger::before {
+      position: absolute;
+      inset: -40% auto -40% -42%;
+      width: 36%;
+      background: linear-gradient(90deg, transparent, rgba(255, 253, 248, .72), transparent);
+      content: "";
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-180%) skewX(-22deg);
+    }
+    .quick-actions::after {
       position: absolute;
       inset: -7px;
       border: 1px solid rgba(240, 100, 85, .58);
@@ -1433,24 +1445,27 @@
       opacity: 0;
       pointer-events: none;
     }
-    .quick-actions.is-visible .quick-actions__trigger { animation: quick-action-nudge 8.4s ease-in-out infinite, quick-action-shine 8.4s ease-in-out infinite; }
-    .quick-actions.is-visible .quick-actions__trigger::after { animation: quick-action-pulse 5.6s var(--ease) 1; }
-    .quick-actions__trigger:hover { background: var(--coral-hover); border-color: var(--coral-hover); transform: translateY(-2px); }
+    .quick-actions.is-visible .quick-actions__trigger { animation: quick-action-nudge 7.6s ease-in-out infinite; }
+    .quick-actions.is-visible .quick-actions__trigger::before { animation: quick-action-shine 7.6s ease-in-out infinite; }
+    .quick-actions.is-visible::after { animation: quick-action-pulse 5.6s var(--ease) 1; }
+    .quick-actions__trigger:hover { background: var(--coral-hover); border-color: var(--coral-hover); transform: translateY(-2px); animation: none; }
     @keyframes quick-action-pulse {
       0%, 68%, 100% { opacity: 0; transform: scale(.96); }
       10% { opacity: .72; transform: scale(.96); }
       36% { opacity: 0; transform: scale(1.16); }
     }
     @keyframes quick-action-nudge {
-      0%, 68%, 100% { transform: translateX(0); }
-      72% { transform: translateX(-2px); }
-      76% { transform: translateX(2px); }
-      80% { transform: translateX(-1px); }
-      84% { transform: translateX(0); }
+      0%, 64%, 100% { transform: translate(0, 0) rotate(0); }
+      68% { transform: translate(-3px, -4px) rotate(-.65deg); }
+      72% { transform: translate(3px, 1px) rotate(.75deg); }
+      76% { transform: translate(-2px, -2px) rotate(-.45deg); }
+      80% { transform: translate(1px, 0) rotate(.25deg); }
+      84% { transform: translate(0, 0) rotate(0); }
     }
     @keyframes quick-action-shine {
-      0%, 67% { background-position: 100% 0; }
-      84%, 100% { background-position: 0 0; }
+      0%, 64% { opacity: 0; transform: translateX(-180%) skewX(-22deg); }
+      68% { opacity: .86; }
+      83%, 100% { opacity: 0; transform: translateX(540%) skewX(-22deg); }
     }
     .quick-actions__trigger:focus-visible,
     .quick-actions__option:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
@@ -1499,7 +1514,8 @@
       .quick-actions,
       .quick-actions__trigger { transition: none; }
       .quick-actions.is-visible .quick-actions__trigger,
-      .quick-actions.is-visible .quick-actions__trigger::after { animation: none; }
+      .quick-actions.is-visible .quick-actions__trigger::before,
+      .quick-actions.is-visible::after { animation: none; }
     }
 
     @media (max-width: 600px) {
