@@ -269,7 +269,9 @@
       display: block;
       margin-bottom: 32px;
       content: "";
-      background: var(--coral);
+      background: linear-gradient(110deg, var(--coral) 0%, var(--coral) 43%, rgba(255, 253, 248, .36) 50%, var(--coral) 57%, var(--coral) 100%);
+      background-position: 100% 0;
+      background-size: 260% 100%;
     }
     .concept--editorial .hero-title {
       max-width: 820px;
@@ -1431,12 +1433,24 @@
       opacity: 0;
       pointer-events: none;
     }
-    .quick-actions.is-visible .quick-actions__trigger::after { animation: quick-action-pulse 5.6s var(--ease) 3; }
+    .quick-actions.is-visible .quick-actions__trigger { animation: quick-action-nudge 8.4s ease-in-out infinite, quick-action-shine 8.4s ease-in-out infinite; }
+    .quick-actions.is-visible .quick-actions__trigger::after { animation: quick-action-pulse 5.6s var(--ease) 1; }
     .quick-actions__trigger:hover { background: var(--coral-hover); border-color: var(--coral-hover); transform: translateY(-2px); }
     @keyframes quick-action-pulse {
       0%, 68%, 100% { opacity: 0; transform: scale(.96); }
       10% { opacity: .72; transform: scale(.96); }
       36% { opacity: 0; transform: scale(1.16); }
+    }
+    @keyframes quick-action-nudge {
+      0%, 68%, 100% { transform: translateX(0); }
+      72% { transform: translateX(-2px); }
+      76% { transform: translateX(2px); }
+      80% { transform: translateX(-1px); }
+      84% { transform: translateX(0); }
+    }
+    @keyframes quick-action-shine {
+      0%, 67% { background-position: 100% 0; }
+      84%, 100% { background-position: 0 0; }
     }
     .quick-actions__trigger:focus-visible,
     .quick-actions__option:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
@@ -1484,6 +1498,7 @@
     @media (prefers-reduced-motion: reduce) {
       .quick-actions,
       .quick-actions__trigger { transition: none; }
+      .quick-actions.is-visible .quick-actions__trigger,
       .quick-actions.is-visible .quick-actions__trigger::after { animation: none; }
     }
 
