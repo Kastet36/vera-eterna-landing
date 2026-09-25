@@ -343,19 +343,15 @@
     .editorial-photo__logo {
       position: absolute;
       z-index: 2;
-      top: clamp(28px, 4vw, 52px);
+      top: clamp(16px, 1.4vw, 28px);
       left: 50%;
       width: min(66%, 340px);
       aspect-ratio: 3412 / 3088;
       background:
         url("assets/about-logo-cropped.png") center / contain no-repeat,
-        radial-gradient(ellipse at center, rgba(255, 253, 248, .94) 0%, rgba(255, 253, 248, .86) 55%, rgba(255, 253, 248, .24) 88%, transparent 100%);
-      opacity: .96;
+        radial-gradient(ellipse at center, rgba(255, 253, 248, .98) 0%, rgba(255, 253, 248, .96) 55%, rgba(255, 253, 248, .84) 88%, rgba(255, 253, 248, .72) 100%);
       transform: translateX(-50%);
       pointer-events: none;
-    }
-    @media (max-width: 1100px) {
-      .editorial-photo__logo { display: none; }
     }
     .concept--editorial:hover .editorial-photo img { transform: scale(1.018); filter: saturate(.9) contrast(1.03); }
     .editorial-sage {
