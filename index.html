@@ -340,6 +340,21 @@
       filter: saturate(.78) contrast(1.04);
       transition: transform .8s var(--ease), filter .8s var(--ease);
     }
+    .editorial-photo__logo {
+      position: absolute;
+      z-index: 2;
+      top: clamp(24px, 3vw, 52px);
+      left: clamp(12px, 1.5vw, 28px);
+      width: clamp(128px, 10vw, 184px);
+      aspect-ratio: 3412 / 3088;
+      background: url("assets/about-logo-cropped.png") center / contain no-repeat;
+      opacity: .78;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+    @media (max-width: 1100px) {
+      .editorial-photo__logo { display: none; }
+    }
     .concept--editorial:hover .editorial-photo img { transform: scale(1.018); filter: saturate(.9) contrast(1.03); }
     .editorial-sage {
       position: absolute;
@@ -1968,6 +1983,7 @@
           <span class="editorial-coral" aria-hidden="true"></span>
           <div class="editorial-photo">
             <img src="assets/interior-portrait.jpg" alt="Светлый зал имидж-студии Вера Этерна" width="1583" height="2367">
+            <span class="editorial-photo__logo" aria-hidden="true"></span>
           </div>
           <span class="editorial-sage" aria-hidden="true"></span>
         </div>
