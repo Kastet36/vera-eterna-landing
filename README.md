@@ -53,21 +53,13 @@ gh auth status --hostname github.com
 ```
 
 Скрипт копирует только `index.html` и `assets/`. Архив `hero-alternatives.html`,
-README и служебные файлы на рабочий домен не попадают. Конфигурация виртуального
-хоста подготовлена в `deploy/promo.vera-eterna.ru.nginx.conf`. Её необходимо установить
-в `/etc/nginx/sites-available/`, включить в `sites-enabled/`, проверить `nginx -t`,
-перезагрузить nginx и выпустить сертификат для `promo.vera-eterna.ru`:
+README и служебные файлы на рабочий домен не попадают. После обновления статических
+файлов перезагрузка nginx не требуется.
 
-```bash
-sudo cp deploy/promo.vera-eterna.ru.nginx.conf /etc/nginx/sites-available/promo.vera-eterna.ru
-sudo ln -s /etc/nginx/sites-available/promo.vera-eterna.ru /etc/nginx/sites-enabled/promo.vera-eterna.ru
-sudo nginx -t
-sudo systemctl reload nginx
-sudo certbot --nginx -d promo.vera-eterna.ru --redirect
-```
-
-На этом сервере у текущего пользователя `sudo` требует пароль, поэтому эти команды
-должен выполнить пользователь с правами администратора. DNS уже указывает на этот
-сервер; до включения виртуального хоста домен отдаёт стандартную страницу nginx.
+Сайт доступен по адресу https://promo.vera-eterna.ru/. HTTP перенаправляется на
+HTTPS. Конфигурация работающего виртуального хоста сохранена в
+`deploy/promo.vera-eterna.ru.nginx.conf`; установленный файл находится в
+`/etc/nginx/sites-available/promo.vera-eterna.ru`. Сертификат выпущен через Certbot,
+автоматическое продление настроено на сервере.
 
 Формы заявок пока не подключены к API и не отправляют данные.
