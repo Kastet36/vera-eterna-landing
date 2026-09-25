@@ -282,7 +282,7 @@
     .editorial-layout {
       min-height: calc(100svh - var(--header-height));
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(390px, .8fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(320px, .6fr);
       align-items: stretch;
     }
     .editorial-copy {
@@ -309,6 +309,7 @@
       line-height: .82;
       letter-spacing: -.055em;
     }
+    .hero-title__first-line { display: block; white-space: nowrap; }
     .concept--editorial .hero-title em {
       display: block;
       color: var(--sage);
@@ -1578,6 +1579,7 @@
       .editorial-layout { padding-top: 24px; }
       .editorial-copy { padding: 48px 24px 40px; }
       .concept--editorial .hero-title { font-size: clamp(60px, 15vw, 88px); }
+      .hero-title__first-line { white-space: normal; }
       .editorial-visual { min-height: 520px; margin: 0 20px 24px; }
       .editorial-photo { inset: 0 0 40px; }
       .editorial-sage { right: 0; width: 82%; height: 64px; }
@@ -1936,7 +1938,7 @@
     <section class="concept concept--editorial" id="concept-1" aria-labelledby="title-1">
       <div class="editorial-layout">
         <div class="editorial-copy">
-          <h1 class="hero-title" id="title-1">Салон красоты <em>в Новоселье</em></h1>
+          <h1 class="hero-title" id="title-1"><span class="hero-title__first-line">Салон красоты</span> <em>в Новоселье</em></h1>
           <p class="hero-text">Женские и мужские стрижки. Окрашивание, уход за волосами, укладки. Брови и макияж. Разработаем образ под ваш запрос.</p>
           <div class="actions">
             <button class="button button--primary" type="button" data-open-form>Запланировать визит</button>
