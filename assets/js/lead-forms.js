@@ -122,4 +122,11 @@
 
   setupForm('lead-form', 'Запланировать визит', 'lead_visit');
   setupForm('price-lead-form', 'Уточнить стоимость', 'lead_price');
+
+  document.querySelectorAll('[data-booking-link]').forEach((link) => {
+    link.addEventListener('click', () => reachGoal('booking_click'));
+    link.addEventListener('auxclick', (event) => {
+      if (event.button === 1) reachGoal('booking_click');
+    });
+  });
 })();
