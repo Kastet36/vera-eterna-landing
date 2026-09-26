@@ -4,6 +4,9 @@
   const endpoint = 'https://vera-eterna.ru/api/proxy.ashx?path=RecordsExchange%2FClientsRequest';
   const salon = { Наименование: 'Вера Этерна', ID: '073ee654-ec6a-11f0-895b-60452ef7c654' };
   const sourceKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'from', 'yclid'];
+  const reachGoal = (goalId) => {
+    try { window.ym?.(112812642, 'reachGoal', goalId); } catch (_) { /* Analytics must not affect the form. */ }
+  };
 
   const normalizePhone = (value) => {
     let digits = value.replace(/\D/g, '');
@@ -56,6 +59,14 @@
     status.tabIndex = -1;
     form.querySelector('.form-consent').before(status);
     let busy = false;
+    const dialog = form.closest('dialog');
+    if (dialog && typeof MutationObserver !== 'undefined') {
+      let wasOpen = dialog.open;
+      new MutationObserver(() => {
+        if (dialog.open && !wasOpen) reachGoal('lead_form_open');
+        wasOpen = dialog.open;
+      }).observe(dialog, { attributes: true, attributeFilter: ['open'] });
+    }
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
@@ -91,7 +102,7 @@
         status.className = 'form-status form-status--success';
         status.textContent = 'Заявка отправлена. Администратор свяжется с вами.';
         status.focus();
-        try { window.ym?.(112812642, 'reachGoal', goalId); } catch (_) { /* Analytics must not affect the form. */ }
+        reachGoal(goalId);
       } catch (error) {
         console.error('Не удалось отправить заявку:', error);
         status.className = 'form-status form-status--error';
@@ -103,7 +114,7 @@
       }
     });
 
-    form.closest('dialog')?.addEventListener('close', () => {
+    dialog?.addEventListener('close', () => {
       status.textContent = '';
       status.className = 'form-status';
     });
