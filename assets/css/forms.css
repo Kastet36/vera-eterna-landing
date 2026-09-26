@@ -1,0 +1,10 @@
+.form-status {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+.form-status:empty { display: none; }
+.form-status--success { color: #23684d; }
+.form-status--error { color: #a12f39; }
+.dialog-content .button:disabled { cursor: wait; opacity: .65; }

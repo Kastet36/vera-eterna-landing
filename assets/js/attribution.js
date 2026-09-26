@@ -56,6 +56,13 @@
     } catch (_) { /* The URL link still carries the source. */ }
   }
 
+  window.veraAttribution = {
+    get: () => {
+      const current = hasIncomingTags ? record : (readRecord() || record);
+      return current && current.expires > Date.now() ? { ...current.fields } : {};
+    }
+  };
+
   const decorateBookingLink = (link) => {
     const url = new URL(link.href);
     const current = hasIncomingTags ? record : (readRecord() || record);
